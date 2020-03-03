@@ -1,3 +1,5 @@
+/* purgecss start ignore */
+
 //import variables,functions,mixins of scss  - not compile to css
 @import 'app.scss';
 
@@ -12,3 +14,5 @@
 
 /* Animations */
 @import 'animations/bouncing';
+
+/* purgecss end ignore */
