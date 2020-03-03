@@ -1,0 +1,119 @@
+//
+// Global styling
+//
+html,
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+  height: 100%;
+}
+
+html {
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+  font-size: 62.5%;
+
+  @media only screen and (max-width: 1880px) {
+    font-size: 61%;
+  }
+  @media only screen and (max-width: 1760px) {
+    font-size: 57.5%;
+  }
+  @media only screen and (max-width: 1660px) {
+    font-size: 54%;
+  }
+
+  // 1440 x 1366
+
+  @media only screen and (max-width: 1560px) {
+    font-size: 52.5%;
+  }
+
+  // 1281
+  @media only screen and (max-width: 1360px) {
+    font-size: 44%;
+  }
+
+  // 1024
+
+  @media only screen and (max-width: 1280px) {
+    font-size: 41.5%;
+  }
+  @media only screen and (max-width: 1024px) {
+    font-size: 35%;
+  }
+  @media only screen and (max-width: 768px) {
+    font-size: 62.5%;
+  }
+  @media only screen and (max-width: 640px) {
+    font-size: 52%;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 48%;
+  }
+  @media only screen and (max-width: 550px) {
+    font-size: 43%;
+  }
+  @media only screen and (max-width: 500px) {
+    font-size: 39.5%;
+  }
+  @media only screen and (max-width: 480px) {
+    font-size: 37%;
+  }
+  @media only screen and (max-width: 415px) {
+    font-size: 32.5%;
+  }
+  @media only screen and (max-width: 375px) {
+    font-size: 30%;
+  }
+  @media only screen and (max-width: 350px) {
+    font-size: 28.5%;
+  }
+  @media only screen and (max-width: 320px) {
+    font-size: 26%;
+  }
+  @include scrollbars(
+    $size: 10px,
+    $thumb-color: var(--primary-bg-color),
+    $track-color: grey,
+    $hover-color: #fe7b2b,
+    $hold-color: #ff954d
+  );
+}
+
+body {
+  position: relative;
+  font-family: var(--base-font-family);
+  text-rendering: optimizeLegibility;
+  background-color: $color-base-background;
+  color: $color-base-text;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: overlay;
+}
+
+a {
+  color: var(--base-text-color);
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.1s;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity 0.5s;
+}
+.layout-enter,
+.layout-leave-active {
+  opacity: 0;
+}

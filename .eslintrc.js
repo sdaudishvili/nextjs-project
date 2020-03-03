@@ -35,6 +35,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/anchor-is-valid': 0,
-    'react/prop-types': 0
+    'react/prop-types': 0,
+    'react/jsx-props-no-spreading': 0
   }
 }

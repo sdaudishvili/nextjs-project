@@ -1,0 +1,11 @@
+//
+// Checks for a valid CSS color.
+/// @group Utilities
+/// @access private
+/// @argument {String} $color - Hex color value
+/// @return {Boolean}
+//
+
+@function is-color($color) {
+  @return (type-of($color) == color) or ($color == "currentColor");
+}

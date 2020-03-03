@@ -1,0 +1,10 @@
+.filtered {
+    filter: grayscale(1);
+    transition: var(--default-transition);
+    &:hover {
+        filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);  
+    }
+    &--ultra {
+        filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);  
+    }
+}

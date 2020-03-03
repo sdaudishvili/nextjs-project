@@ -1,0 +1,22 @@
+//
+/// @group Fonts
+/// @access public
+/// @param {string} $lang-code
+/// @param {string} $font-family
+/// @param {string} $font-size
+/// @example body{ @include fonts('ka','bpg-nino-mtavruli',18px) }
+/// @return html[lang="ka"]{ body{ font-family: 'bpg-nino-mtavruli; font-size: 18px;} }
+//
+@mixin fonts($fonts...) {
+  $lang-code: nth($fonts, 1);
+
+  html[lang="#{$lang-code}"] & {
+    @if(length($fonts) > 1) {
+      font-family: nth($fonts, 2);
+    }
+
+    @if(length($fonts) > 2) {
+      font-size: nth($fonts, 3);
+    }
+  }
+}

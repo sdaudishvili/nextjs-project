@@ -1,0 +1,13 @@
+//
+/// @see {variable} $animation-map - Keyframes animations map
+/// @see {function} animations - Helper function to get animations value from `$animation-config` map
+//
+
+@keyframes bouncing {
+  0%, 50%, 100% { /* OR from, 50%, to */
+    top: 0;
+  }
+  25%, 75% {
+    top: 100px;
+  }
+}
