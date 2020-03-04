@@ -11,7 +11,7 @@ function App({ Component, pageProps }) {
 }
 
 App.getInitialProps = ({ ctx }) => {
-  if (ctx.pathname.includes('/about')) {
+  if (ctx.pathname.includes('/admin')) {
     ctx.res.writeHead(301, {
       Location: '/'
     })
