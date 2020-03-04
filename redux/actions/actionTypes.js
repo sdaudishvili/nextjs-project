@@ -1,0 +1,15 @@
+export const SET_CONTACTS = 'SET_CONTACTS'
+export const FETCH_CONTACTS = 'FETCH_CONTACTS'
+
+export const SET_ABOUT = 'SET_ABOUT'
+export const FETCH_ABOUT = 'FETCH_ABOUT'
+
+export const SET_UPLOADED_IMAGE_FILENAME = 'SET_UPLOADED_IMAGE_FILENAME'
+export const SET_UPLOADED_IMAGE_ERROR = 'SET_UPLOADED_IMAGE_ERROR'
+
+export const SET_ERROR = 'SET_ERROR'
+export const SET_SUCCESS = 'SET_SUCCESS'
+export const SET_LOADING = 'SET_LOADING'
+
+export const SET_USER = 'SET_USER'
+export const SET_AUTH_ERR = 'SET_AUTH_ERR'
