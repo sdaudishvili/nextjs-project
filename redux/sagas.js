@@ -1,4 +1,5 @@
 import { takeLatest, all, call } from 'redux-saga/effects'
+import fetch from 'isomorphic-fetch'
 
 import { FETCH_CONTACTS } from './actions/actionTypes'
 

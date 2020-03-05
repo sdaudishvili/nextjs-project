@@ -1,11 +1,12 @@
 import '../styles/index.css'
 import '../styles/sass/style.scss'
 import { Provider } from 'react-redux'
-
+import App from 'next/app'
+import withRedux from 'next-redux-wrapper'
 import Layout from '../components/layout/DefaultLayout'
-import store from '../redux/store'
+import createStore from '../redux/store'
 
-function App({ Component, pageProps }) {
+function MyApp({ Component, pageProps, store }) {
   return (
     <Provider store={store}>
       <Layout>
@@ -15,14 +16,16 @@ function App({ Component, pageProps }) {
   )
 }
 
-App.getInitialProps = ({ ctx }) => {
-  if (ctx.pathname.includes('/admin')) {
-    ctx.res.writeHead(301, {
+MyApp.getInitialProps = async (appContext) => {
+  if (appContext.ctx.pathname.includes('/admin')) {
+    appContext.ctx.res.writeHead(301, {
       Location: '/'
     })
-    ctx.res.end()
+    appContext.ctx.res.end()
   }
-  return {}
+
+  const appProps = await App.getInitialProps(appContext)
+  return { ...appProps }
 }
 
-export default App
+export default withRedux(createStore)(MyApp)

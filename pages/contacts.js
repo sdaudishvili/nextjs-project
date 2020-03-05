@@ -13,10 +13,6 @@ function Contacts() {
   const [data, setData] = useState('')
 
   useEffect(() => {
-    dispatch(fetchContacts())
-  }, [dispatch])
-
-  useEffect(() => {
     setData({ phone: contacts.data.phone, email: contacts.data.email, address: contacts.data.address })
   }, [contacts.data.address, contacts.data.email, contacts.data.phone])
 
@@ -44,4 +40,8 @@ function Contacts() {
   return <Page pageTitle="Contacts" head={head} body={elems} />
 }
 
+Contacts.getInitialProps = ({ store }) => {
+  store.dispatch(fetchContacts())
+  return { test: 'adsfadsf' }
+}
 export default Contacts
