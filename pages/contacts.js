@@ -5,16 +5,12 @@ import TwoButtons from '../components/molecules/TwoButtons'
 import SectionHeader from '../components/atoms/SectionHeader'
 import Page from '../components/Page/Page'
 
-import { fetchContacts, updateContacts } from '../redux/actions/contactsActions'
+import { fetchContacts } from '../redux/actions/contactsActions'
 
 function Contacts() {
   const contacts = useSelector((state) => state.contacts)
   const dispatch = useDispatch()
   const [data, setData] = useState('')
-
-  useEffect(() => {
-    setData({ phone: contacts.data.phone, email: contacts.data.email, address: contacts.data.address })
-  }, [contacts.data.address, contacts.data.email, contacts.data.phone])
 
   function handleInput(event) {
     const { value } = event.target
@@ -22,7 +18,7 @@ function Contacts() {
   }
 
   function onSubmit() {
-    dispatch(updateContacts(data))
+    // dispatch(updateContacts(data))
   }
 
   function onCancel() {
@@ -37,11 +33,12 @@ function Contacts() {
   ]
   const head = <SectionHeader title="Information" />
 
-  return <Page pageTitle="Contacts" head={head} body={elems} />
+  return <div>{JSON.stringify(contacts.data)}</div>
+  // <Page pageTitle="Contacts" head={head} body={elems} />
 }
 
-Contacts.getInitialProps = ({ store }) => {
-  store.dispatch(fetchContacts())
-  return { test: 'adsfadsf' }
+Contacts.getInitialProps = async ({ ctx }) => {
+  await ctx.store.dispatch(fetchContacts())
+  return {}
 }
 export default Contacts

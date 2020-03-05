@@ -1,7 +1,7 @@
 import { SET_CONTACTS } from '../actions/actionTypes'
 
 const initialState = {
-  data: {}
+  data: { asd: 'asdf' }
 }
 
 const reducer = (state = initialState, action) => {
