@@ -1,4 +1,4 @@
-import { SET_CONTACTS } from '../actions/actionTypes'
+import { SET_CONTACTS } from '../actionTypes'
 
 const initialState = {
   data: { asd: 'asdf' }

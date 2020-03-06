@@ -1,4 +1,4 @@
-import { SET_CONTACTS, FETCH_CONTACTS } from './actionTypes'
+import { SET_CONTACTS, FETCH_CONTACTS } from '../actionTypes'
 import { setError, setSuccess, setLoading } from './notificationActions'
 
 export const setContacts = (payload) => {

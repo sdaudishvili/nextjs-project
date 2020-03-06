@@ -1,4 +1,4 @@
-import { SET_ERROR, SET_SUCCESS, SET_LOADING } from './actionTypes'
+import { SET_ERROR, SET_SUCCESS, SET_LOADING } from '../actionTypes'
 
 export const setError = (payload) => {
   return {
