@@ -1,4 +1,3 @@
-import React from 'react'
 import Container from '@material-ui/core/Container'
 import { useDispatch, useSelector } from 'react-redux'
 import SignInAvatar from './SignInAvatar'
@@ -8,7 +7,8 @@ import Copyright from './Copyright'
 import { authenticateUser } from '../../redux/actions/userActions'
 
 export default function SignIn() {
-  const error = useSelector((state) => state.userState.error)
+  // const error = useSelector((state) => state.userState.error)
+  const user = useSelector((state) => state.userState)
   const dispatch = useDispatch()
 
   function Submit(e) {
@@ -25,8 +25,9 @@ export default function SignIn() {
   }
   return (
     <Container className="[ pt-8-0 flex flex-col items-center ]" component="main" maxWidth="xs">
+      <div>{JSON.stringify(user)}</div>
       <SignInAvatar />
-      <SignInForm onSubmit={Submit} error={error} />
+      <SignInForm onSubmit={Submit} error={false} />
       <Copyright />
     </Container>
   )

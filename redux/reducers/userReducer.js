@@ -1,7 +1,6 @@
 import Cookies from 'universal-cookie'
 import jwtDecode from 'jwt-decode'
 import { SET_USER, SET_AUTH_ERR } from '../actions/actionTypes'
-import { setToken } from '../../plugins/axios'
 
 function getInitialState() {
   const cookies = new Cookies()
@@ -13,7 +12,6 @@ function getInitialState() {
     if (parsedToken.exp - now < 0) {
       cookies.remove('testUser', { path: '/' })
     } else {
-      setToken(token)
       res = { ...res, user: jwtDecode(token).email }
     }
   }
