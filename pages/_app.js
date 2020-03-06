@@ -15,39 +15,25 @@ function MyApp({ Component, pageProps, store }) {
     </Provider>
   )
 }
-
 MyApp.getInitialProps = async ({ Component, ctx }) => {
-  function parseCookies(request) {
-    const list = {}
-    const rc = request.headers.cookie
-
-    if (rc) {
-      rc.split(';').forEach((cookie) => {
-        const parts = cookie.split('=')
-        list[parts.shift().trim()] = decodeURI(parts.join('='))
-      })
-    }
-    return list
-  }
-  const cookies = parseCookies(ctx.req)
-  console.log(cookies)
-
-  if (ctx.pathname.includes('/post')) {
-    ctx.res.writeHead(301, {
-      Location: '/test'
-    })
-    ctx.res.end()
-  }
+  // if (ctx.pathname.includes('/test')) {
+  //   ctx.res.writeHead(301, {
+  //     'Cache-Control': 'no-cache',
+  //     Location: '/'
+  //   })
+  //   ctx.res.end()
+  // }
 
   const { user } = ctx.store.getState().userState
 
   if (user !== '' && ctx.pathname === '/admin/auth/login') {
     ctx.res.writeHead(301, {
+      'Cache-Control': 'no-cache',
       Location: '/admin'
     })
     ctx.res.end()
   } else if (ctx.pathname.includes('/admin') && ctx.pathname !== '/admin/auth/login') {
-    ctx.res.writeHead(404)
+    ctx.res.writeHead(404, { 'Cache-Control': 'no-cache' })
     ctx.res.end()
   }
 
