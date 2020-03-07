@@ -1,34 +1,25 @@
-import { SET_CONTACTS, FETCH_CONTACTS } from '../actionTypes'
-import { setError, setSuccess, setLoading } from './notificationActions'
+import { SET_CONTACTS, FETCH_CONTACTS, UPDATE_CONTACTS } from '../actionTypes';
 
 export const setContacts = (payload) => {
   return {
     type: SET_CONTACTS,
     payload
-  }
-}
+  };
+};
 
 export const fetchContacts = (payload) => {
   return {
     type: FETCH_CONTACTS,
     payload
-  }
-}
+  };
+};
 
-// export const fetchContacts = () => {
-//   return (dispatch) => {
-//     dispatch(setLoading(true))
-//     axios.default
-//       .get('contacts')
-//       .then((response) => {
-//         dispatch(setContacts(response.data))
-//         dispatch(setLoading(false))
-//       })
-//       .catch((error) => {
-//         console.error(error)
-//       })
-//   }
-// }
+export const updateContacts = (payload) => {
+  return {
+    type: UPDATE_CONTACTS,
+    payload
+  };
+};
 
 // export const updateContacts = (data) => {
 //   return (dispatch) => {

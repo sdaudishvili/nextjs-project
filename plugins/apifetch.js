@@ -1,8 +1,8 @@
-require('es6-promise').polyfill()
-require('isomorphic-fetch')
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 export default function apifetch(url, method, body) {
-  let errored = false
+  let errored = false;
   return fetch(process.env.baseApiUrl + url, {
     method,
     cache: 'no-cache',
@@ -14,14 +14,14 @@ export default function apifetch(url, method, body) {
   })
     .then((response) => {
       if (response.status >= 400) {
-        errored = true
+        errored = true;
       }
-      return response.json()
+      return response.json();
     })
     .then((data) => {
       if (errored) {
-        throw data
+        throw data;
       }
-      return data
-    })
+      return data;
+    });
 }

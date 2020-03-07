@@ -1,5 +1,6 @@
 export const SET_CONTACTS = 'SET_CONTACTS'
 export const FETCH_CONTACTS = 'FETCH_CONTACTS'
+export const UPDATE_CONTACTS = 'UPDATE_CONTACTS'
 
 export const SET_ABOUT = 'SET_ABOUT'
 export const FETCH_ABOUT = 'FETCH_ABOUT'
