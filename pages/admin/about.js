@@ -3,5 +3,5 @@ export default function About() {
     <div className="flex">
       <h1>about</h1>
     </div>
-  )
+  );
 }

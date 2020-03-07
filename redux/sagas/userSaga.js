@@ -3,7 +3,7 @@ import Cookies from 'universal-cookie';
 import jwtDecode from 'jwt-decode';
 
 import { setUser, setAuthError } from '../actions/userActions';
-import { AUTHENTICATE_USER } from '../actionTypes';
+import { AUTHENTICATE_USER, SIGN_OUT } from '../actionTypes';
 import apifetch from '../../plugins/apifetch';
 
 const cookies = new Cookies();
@@ -18,6 +18,12 @@ function* authenticateUser({ payload }) {
     yield put(setAuthError(error.err));
   }
 }
+
+function* signOut() {
+  cookies.remove('testUser', { path: '/' });
+  yield put(setUser(''));
+}
 export default function* watchAuthUser() {
   yield takeLatest(AUTHENTICATE_USER, authenticateUser);
+  yield takeLatest(SIGN_OUT, signOut);
 }

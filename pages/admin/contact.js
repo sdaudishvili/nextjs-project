@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { withRouter } from 'next/router';
 import Input from '../../components/molecules/Input';
 import TwoButtons from '../../components/molecules/TwoButtons';
 import SectionHeader from '../../components/atoms/SectionHeader';
@@ -7,7 +8,7 @@ import Page from '../../components/Page/Page';
 
 import { fetchContacts, updateContacts } from '../../redux/actions/contactsActions';
 
-function Contacts() {
+function Contacts({ router }) {
   const contacts = useSelector((state) => state.contacts);
   const [data, setData] = useState({ ...contacts.data });
   const dispatch = useDispatch();
@@ -19,9 +20,12 @@ function Contacts() {
 
   function onSubmit() {
     dispatch(updateContacts(data));
+    router.push('/admin');
   }
 
-  function onCancel() {}
+  function onCancel() {
+    router.push('/admin');
+  }
 
   const elems = [
     <Input type="text" label="Mobile" value={data.phone || ''} handleInput={handleInput} name="phone" />,
@@ -37,4 +41,4 @@ function Contacts() {
 Contacts.getInitialProps = async ({ ctx }) => {
   await ctx.store.dispatch(fetchContacts());
 };
-export default Contacts;
+export default withRouter(Contacts);

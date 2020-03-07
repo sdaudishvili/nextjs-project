@@ -1,5 +1,3 @@
-import React from 'react'
-
 function TextBox(props) {
   return (
     <div className="[ grid grid-cols-12 ]">
@@ -8,7 +6,7 @@ function TextBox(props) {
         <textarea type={props.type} onChange={props.handleInput} name={props.name} value={props.value} />
       </div>
     </div>
-  )
+  );
 }
 
-export default TextBox
+export default TextBox;

@@ -1,10 +1,10 @@
-import { SET_USER, SET_AUTH_ERR } from '../actionTypes'
+import { SET_USER, SET_AUTH_ERR } from '../actionTypes';
 
 function getInitialState() {
-  return { user: '', error: '' }
+  return { user: '', error: '' };
 }
 
-const initialState = getInitialState()
+const initialState = getInitialState();
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -12,17 +12,17 @@ const reducer = (state = initialState, action) => {
       return {
         user: action.payload,
         error: ''
-      }
+      };
     }
     case SET_AUTH_ERR: {
       return {
         user: '',
         error: action.payload
-      }
+      };
     }
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default reducer
+export default reducer;

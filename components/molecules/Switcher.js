@@ -1,5 +1,5 @@
-import React from 'react'
-import Switch from '@material-ui/core/Switch'
+import React from 'react';
+import Switch from '@material-ui/core/Switch';
 
 function Switcher(props) {
   return (
@@ -14,7 +14,7 @@ function Switcher(props) {
         />
       </div>
     </div>
-  )
+  );
 }
 
-export default Switcher
+export default Switcher;

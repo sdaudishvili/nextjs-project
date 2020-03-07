@@ -1,5 +1,3 @@
-import React from 'react'
-
 function Input(props) {
   return (
     <div className="[ grid grid-cols-12 ]">
@@ -8,7 +6,7 @@ function Input(props) {
         <input type={props.type} onChange={props.handleInput} name={props.name} value={props.value} />
       </div>
     </div>
-  )
+  );
 }
 
-export default Input
+export default Input;

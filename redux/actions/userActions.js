@@ -1,7 +1,4 @@
-import Cookies from 'universal-cookie';
-import { SET_USER, SET_AUTH_ERR, AUTHENTICATE_USER } from '../actionTypes';
-
-const cookies = new Cookies();
+import { SET_USER, SET_AUTH_ERR, AUTHENTICATE_USER, SIGN_OUT } from '../actionTypes';
 
 export const setUser = (payload) => {
   return {
@@ -24,9 +21,9 @@ export const authenticateUser = (payload) => {
   };
 };
 
-export const signOut = () => {
-  return (dispatch) => {
-    cookies.remove('testUser', { path: '/' });
-    dispatch(setUser(''));
+export const signOut = (payload) => {
+  return {
+    type: SIGN_OUT,
+    payload
   };
 };

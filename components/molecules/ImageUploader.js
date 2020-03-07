@@ -1,5 +1,3 @@
-import React from 'react'
-
 function ImageUploader(props) {
   return (
     <>
@@ -13,7 +11,7 @@ function ImageUploader(props) {
         <img className="[ mt-2-0 w-30-percent ml-30-percent ]" src={STATICURL + props.image} alt="" />
       )}
     </>
-  )
+  );
 }
 
-export default ImageUploader
+export default ImageUploader;

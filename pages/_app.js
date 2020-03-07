@@ -6,20 +6,32 @@ import withRedux from 'next-redux-wrapper';
 import withReduxSaga from 'next-redux-saga';
 import { parseCookies, destroyCookie } from 'nookies';
 import JwtDecode from 'jwt-decode';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Layout from '../components/layout/DefaultLayout';
 import createStore from '../redux/store';
 import { setUser } from '../redux/actions/userActions';
 import Notifications from '../components/organisms/Notifications';
 import Loader from '../components/molecules/Loader';
 
-function MyApp({ Component, pageProps, store }) {
+const theme = createMuiTheme({
+  typography: {
+    htmlFontSize: 10
+  }
+});
+function MyApp({ Component, pageProps, store, router }) {
   return (
     <Provider store={store}>
-      <Notifications />
-      <Loader />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ThemeProvider theme={theme}>
+        <Notifications />
+        <Loader />
+        {router.pathname !== '/admin/auth/login' && router.pathname.includes('admin') && (
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        )}
+        {router.pathname === '/admin/auth/login' && <Component {...pageProps} />}
+        {!router.pathname.includes('admin') && <Component {...pageProps} />}
+      </ThemeProvider>
     </Provider>
   );
 }
@@ -36,16 +48,18 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
     }
   }
 
-  const { user } = ctx.store.getState().userState;
-  if (user !== '' && ctx.pathname === '/admin/auth/login') {
-    ctx.res.writeHead(301, {
-      'Cache-Control': 'no-cache',
-      Location: '/admin'
-    });
-    ctx.res.end();
-  } else if (user === '' && ctx.pathname.includes('/admin') && ctx.pathname !== '/admin/auth/login') {
-    ctx.res.writeHead(404, { 'Cache-Control': 'no-cache' });
-    ctx.res.end();
+  if (ctx.res) {
+    const { user } = ctx.store.getState().userState;
+    if (user !== '' && ctx.pathname === '/admin/auth/login') {
+      ctx.res.writeHead(301, {
+        'Cache-Control': 'no-cache',
+        Location: '/admin'
+      });
+      ctx.res.end();
+    } else if (user === '' && ctx.pathname.includes('/admin') && ctx.pathname !== '/admin/auth/login') {
+      ctx.res.writeHead(404, { 'Cache-Control': 'no-cache' });
+      ctx.res.end();
+    }
   }
   let pageProps = {};
   if (Component.getInitialProps) {

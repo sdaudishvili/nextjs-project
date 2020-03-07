@@ -1,17 +1,18 @@
-import React from 'react'
-import Toolbar from '@material-ui/core/Toolbar'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
-import ExitToAppIcon from '@material-ui/icons/ExitToApp'
-import { useSelector } from 'react-redux'
-// import { signOut } from '../redux/actions/userActions'
+import React from 'react';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { useDispatch } from 'react-redux';
+import { withRouter } from 'next/router';
+import { signOut } from '../../redux/actions/userActions';
 
-export default function MaterialUiHeader() {
-  // const dispatch = useDispatch()
-  // const user = useSelector((state) => state.userState.user)
+function Header({ router }) {
+  const dispatch = useDispatch();
 
   function handleSignOutButton() {
-    // dispatch(signOut())
+    dispatch(signOut());
+    router.push('/admin/auth/login');
   }
   return (
     <div className="[ fixed top-0 left-0 right-0 text-white bg-header h-7-0 z-2 ]">
@@ -26,5 +27,7 @@ export default function MaterialUiHeader() {
         </IconButton>
       </Toolbar>
     </div>
-  )
+  );
 }
+
+export default withRouter(Header);

@@ -1,6 +1,5 @@
-import React from 'react'
-import Button from '@material-ui/core/Button'
-import ButtonGroup from '@material-ui/core/ButtonGroup'
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 function TwoButtons(props) {
   return (
@@ -18,7 +17,7 @@ function TwoButtons(props) {
         <span className="[ text-1-3 ]">Cancel</span>
       </Button>
     </ButtonGroup>
-  )
+  );
 }
 
-export default TwoButtons
+export default TwoButtons;
