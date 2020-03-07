@@ -1,19 +1,23 @@
 const withSass = require('@zeit/next-sass');
 const withCSS = require('@zeit/next-css');
+const withFonts = require('next-fonts');
 const path = require('path');
 
-module.exports = withCSS(
-  withSass({
-    env: {
-      baseApiUrl: 'http://localhost:3001/api/'
-    },
-    webpack: (config, { webpack }) => {
-      config.plugins.push(
-        new webpack.ProvidePlugin({
-          axios: path.resolve(__dirname, 'plugins/axios')
-        })
-      );
-      return config;
-    }
-  })
+module.exports = withFonts(
+  withCSS(
+    withSass({
+      env: {
+        baseApiUrl: 'http://localhost:3001/api/'
+      },
+      enableSvg: true,
+      webpack: (config, { webpack }) => {
+        config.plugins.push(
+          new webpack.ProvidePlugin({
+            axios: path.resolve(__dirname, 'plugins/axios')
+          })
+        );
+        return config;
+      }
+    })
+  )
 );

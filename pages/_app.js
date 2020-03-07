@@ -1,5 +1,6 @@
-import '../styles/index.css';
 import '../styles/sass/style.scss';
+import '../styles/index.css';
+
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import withReduxSaga from 'next-redux-saga';
@@ -8,10 +9,14 @@ import JwtDecode from 'jwt-decode';
 import Layout from '../components/layout/DefaultLayout';
 import createStore from '../redux/store';
 import { setUser } from '../redux/actions/userActions';
+import Notifications from '../components/organisms/Notifications';
+import Loader from '../components/molecules/Loader';
 
 function MyApp({ Component, pageProps, store }) {
   return (
     <Provider store={store}>
+      <Notifications />
+      <Loader />
       <Layout>
         <Component {...pageProps} />
       </Layout>

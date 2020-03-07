@@ -1,10 +1,10 @@
-import { SET_ERROR, SET_SUCCESS, SET_LOADING } from '../actions/actionTypes'
+import { SET_ERROR, SET_SUCCESS, SET_LOADING } from '../actionTypes';
 
 const initialState = {
   success: false,
   error: false,
   loading: false
-}
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -12,23 +12,23 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload
-      }
+      };
     }
     case SET_SUCCESS: {
       return {
         ...state,
         success: action.payload
-      }
+      };
     }
     case SET_LOADING: {
       return {
         ...state,
         loading: action.payload
-      }
+      };
     }
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default reducer
+export default reducer;

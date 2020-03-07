@@ -1,21 +1,47 @@
-import React, { useEffect } from 'react'
-import { NotificationContainer, NotificationManager } from 'react-notifications'
-import 'react-notifications/lib/notifications.css'
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import ReactNotification, { store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
 
-function Notifications(props) {
+function Notifications() {
+  const notifs = useSelector((state) => state.notifs);
   useEffect(() => {
-    if (props.error) {
-      NotificationManager.error('Error message', 'Error', 2000)
+    if (notifs.success) {
+      store.addNotification({
+        title: 'Success!',
+        message: 'success',
+        type: 'success',
+        insert: 'top',
+        container: 'top-right',
+        animationIn: ['animated', 'fadeIn'],
+        animationOut: ['animated', 'fadeOut'],
+        dismiss: {
+          duration: 3000,
+          onScreen: false
+        }
+      });
     }
-    if (props.success) {
-      NotificationManager.success('Success message', 'Success', 2000)
+    if (notifs.error) {
+      store.addNotification({
+        title: 'Error!',
+        message: 'error',
+        type: 'error',
+        insert: 'top',
+        container: 'top-right',
+        animationIn: ['animated', 'fadeIn'],
+        animationOut: ['animated', 'fadeOut'],
+        dismiss: {
+          duration: 3000,
+          onScreen: false
+        }
+      });
     }
-  }, [props.error, props.success])
+  }, [notifs.error, notifs.success]);
   return (
     <div className="[ text-1-7 ]">
-      <NotificationContainer />
+      <ReactNotification />
     </div>
-  )
+  );
 }
 
-export default Notifications
+export default Notifications;

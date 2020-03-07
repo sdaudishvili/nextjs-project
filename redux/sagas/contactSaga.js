@@ -26,6 +26,8 @@ function* updateData({ payload }) {
     yield put(setLoading(false));
     yield put(setError(true));
   }
+  yield put(setError(false));
+  yield put(setSuccess(false));
 }
 
 export default function* watchFetchData() {

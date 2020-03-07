@@ -1,8 +1,8 @@
-import { useDispatch } from 'react-redux'
-import { fetchContacts } from '../redux/actions/contactsActions'
+import { useDispatch } from 'react-redux';
+import { fetchContacts } from '../redux/actions/contactsActions';
 
 export default function Blog() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   return (
     <div className="flex">
@@ -15,5 +15,5 @@ export default function Blog() {
       </button>
       <h1>My Blog</h1>
     </div>
-  )
+  );
 }
