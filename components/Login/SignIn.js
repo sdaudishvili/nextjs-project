@@ -9,7 +9,6 @@ import Copyright from './Copyright';
 import { authenticateUser } from '../../redux/actions/userActions';
 
 function SignIn({ router }) {
-  // const error = useSelector((state) => state.userState.error)
   const user = useSelector((state) => state.userState);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -30,9 +29,10 @@ function SignIn({ router }) {
   }
   return (
     <Container className="[ pt-8-0 flex flex-col items-center ]" component="main" maxWidth="xs">
-      <div>{JSON.stringify(user)}</div>
       <SignInAvatar />
-      <SignInForm onSubmit={Submit} error={false} />
+      <NoSSR>
+        <SignInForm onSubmit={Submit} error={user.error !== ''} />
+      </NoSSR>
       <Copyright />
     </Container>
   );

@@ -1,19 +1,19 @@
-import { SET_ABOUT } from '../actions/actionTypes'
+import { SET_ABOUT } from '../actionTypes';
 
 const initialState = {
   data: {}
-}
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_ABOUT: {
       return {
         data: action.payload
-      }
+      };
     }
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default reducer
+export default reducer;

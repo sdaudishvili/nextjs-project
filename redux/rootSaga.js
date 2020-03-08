@@ -1,8 +1,9 @@
 import { all } from 'redux-saga/effects';
 
 import watchAuthUser from './sagas/userSaga';
-import watchFetchData from './sagas/contactSaga';
+import watchContacts from './sagas/contactSaga';
+import watchAbout from './sagas/aboutSaga';
 
 export default function* rootSaga(payload) {
-  yield all([watchFetchData(payload), watchAuthUser(payload)]);
+  yield all([watchContacts(payload), watchAuthUser(payload), watchAbout(payload)]);
 }

@@ -1,8 +1,8 @@
-import { SET_CONTACTS } from '../actionTypes'
+import { SET_CONTACTS } from '../actionTypes';
 
 const initialState = {
   data: { asd: 'asdf' }
-}
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -10,11 +10,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         data: action.payload
-      }
+      };
     }
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default reducer
+export default reducer;

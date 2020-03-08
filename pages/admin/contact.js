@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'next/router';
 import Input from '../../components/molecules/Input';
@@ -13,9 +13,12 @@ function Contacts({ router }) {
   const [data, setData] = useState({ ...contacts.data });
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    setData({ ...data, ...contacts.data });
+  }, [contacts]);
+
   function handleInput(event) {
-    const { value } = event.target;
-    setData({ ...data, [event.target.name]: value });
+    setData({ ...data, [event.target.name]: event.target.value });
   }
 
   function onSubmit() {

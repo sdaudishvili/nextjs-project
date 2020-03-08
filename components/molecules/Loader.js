@@ -19,14 +19,14 @@ function CircularDeterminate() {
 
   return (
     <div>
-      <div className="[ fixed w-100-percent h-100-percent top-0 left-0 flex justify-center items-center ]">
+      <div className="[ fixed w-100-percent h-100-percent top-7-0 left-27-5 flex justify-center items-center ]">
         <CircularProgress variant="determinate" value={progress} color="secondary" />
       </div>
-      <div className="[ fixed w-100-percent h-100-percent top-0 left-0 flex bg-gray opacity-10 z-10 ]" />
+      <div className="[ fixed w-100-percent h-100-percent top-7-0 left-27-5 flex bg-gray opacity-10 z-10 ]" />
     </div>
   );
 }
 
-export default function Loader() {
-  return <>{useSelector((state) => state.notifs.loading) && <CircularDeterminate />}</>;
+export default function Loader(props) {
+  return <>{useSelector((state) => state.notifs.loading || props.loading) && <CircularDeterminate />}</>;
 }

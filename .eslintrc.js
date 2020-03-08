@@ -14,10 +14,12 @@ module.exports = {
   globals: {
     test: true,
     axios: true,
-    STATICURL: true
+    STATICURL: true,
+    NoSSR: true
   },
   plugins: ['jsx-a11y', 'react-hooks'],
   rules: {
+    'react/jsx-no-undef': [2, { allowGlobals: true }],
     'react/destructuring-assignment': 0,
     'react/jsx-filename-extension': [
       1,
@@ -38,4 +40,4 @@ module.exports = {
     'react/prop-types': 0,
     'react/jsx-props-no-spreading': 0
   }
-}
+};
