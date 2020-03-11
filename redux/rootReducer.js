@@ -7,10 +7,10 @@ import notificationReducer from './reducers/notificationReducer';
 export const exampleInitialState = {};
 
 const rootReducer = combineReducers({
-  contacts: contactsReducer,
-  notifs: notificationReducer,
-  userState: userReducer,
-  about: aboutReducer
+    contacts: contactsReducer,
+    notifs: notificationReducer,
+    userState: userReducer,
+    about: aboutReducer
 });
 
 export default rootReducer;

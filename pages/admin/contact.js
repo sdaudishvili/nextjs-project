@@ -9,39 +9,45 @@ import Page from '../../components/Page/Page';
 import { fetchContacts, updateContacts } from '../../redux/actions/contactsActions';
 
 function Contacts({ router }) {
-  const contacts = useSelector((state) => state.contacts);
-  const [data, setData] = useState({ ...contacts.data });
-  const dispatch = useDispatch();
+    const contacts = useSelector((state) => state.contacts);
+    const [data, setData] = useState({ ...contacts.data });
+    const dispatch = useDispatch();
 
-  useEffect(() => {
-    setData({ ...data, ...contacts.data });
-  }, [contacts]);
+    useEffect(() => {
+        setData({ ...data, ...contacts.data });
+    }, [contacts]);
 
-  function handleInput(event) {
-    setData({ ...data, [event.target.name]: event.target.value });
-  }
+    function handleInput(event) {
+        setData({ ...data, [event.target.name]: event.target.value });
+    }
 
-  function onSubmit() {
-    dispatch(updateContacts(data));
-    router.push('/admin');
-  }
+    function onSubmit() {
+        dispatch(updateContacts(data));
+        router.push('/admin');
+    }
 
-  function onCancel() {
-    router.push('/admin');
-  }
+    function onCancel() {
+        router.push('/admin');
+    }
 
-  const elems = [
-    <Input type="text" label="Mobile" value={data.phone || ''} handleInput={handleInput} name="phone" />,
-    <Input type="text" label="Email" value={data.email || ''} handleInput={handleInput} name="email" />,
-    <Input type="text" label="Address" value={data.address || ''} handleInput={handleInput} name="address" />,
-    <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
-  ];
-  const head = <SectionHeader title="Information" />;
+    const elems = [
+        <Input type="text" label="Mobile" value={data.phone || ''} handleInput={handleInput} name="phone" />,
+        <Input type="text" label="Email" value={data.email || ''} handleInput={handleInput} name="email" />,
+        <Input
+            type="text"
+            label="Address"
+            value={data.address || ''}
+            handleInput={handleInput}
+            name="address"
+        />,
+        <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
+    ];
+    const head = <SectionHeader title="Information" />;
 
-  return <Page pageTitle="Contacts" head={head} body={elems} />;
+    return <Page pageTitle="Contacts" head={head} body={elems} />;
 }
 
 Contacts.getInitialProps = async ({ ctx }) => {
-  await ctx.store.dispatch(fetchContacts());
+    await ctx.store.dispatch(fetchContacts());
 };
 export default withRouter(Contacts);

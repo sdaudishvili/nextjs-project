@@ -14,67 +14,67 @@ import Notifications from '../components/organisms/Notifications';
 import Loader from '../components/molecules/Loader';
 
 const theme = createMuiTheme({
-  typography: {
-    htmlFontSize: 10
-  }
+    typography: {
+        htmlFontSize: 10
+    }
 });
 function MyApp({ Component, pageProps, store, router, errorCode }) {
-  if (errorCode) {
-    return <Error statusCode={404} />;
-  }
-  return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <Notifications />
-        {router.pathname !== '/admin/auth/login' && router.pathname.includes('admin') && (
-          <Layout>
-            <Loader />
-            <Component {...pageProps} />
-          </Layout>
-        )}
-        {router.pathname === '/admin/auth/login' && <Component {...pageProps} />}
-        {!router.pathname.includes('admin') && <Component {...pageProps} />}
-      </ThemeProvider>
-    </Provider>
-  );
+    if (errorCode) {
+        return <Error statusCode={404} />;
+    }
+    return (
+        <Provider store={store}>
+            <ThemeProvider theme={theme}>
+                <Notifications />
+                {router.pathname !== '/admin/auth/login' && router.pathname.includes('admin') && (
+                    <Layout>
+                        <Loader />
+                        <Component {...pageProps} />
+                    </Layout>
+                )}
+                {router.pathname === '/admin/auth/login' && <Component {...pageProps} />}
+                {!router.pathname.includes('admin') && <Component {...pageProps} />}
+            </ThemeProvider>
+        </Provider>
+    );
 }
 MyApp.getInitialProps = async ({ Component, ctx }) => {
-  if (ctx.isServer) {
-    const token = parseCookies(ctx).testUser;
-    if (token !== undefined) {
-      const parsedToken = JwtDecode(token);
-      const now = new Date().getTime() / 1000;
-      if (parsedToken.exp - now < 0) {
-        destroyCookie(ctx, 'testUser');
-      } else {
-        ctx.store.dispatch(setUser(parsedToken.email));
-        axios.default.defaults.headers.common.Authorization = token;
-      }
+    if (ctx.isServer) {
+        const token = parseCookies(ctx).testUser;
+        if (token !== undefined) {
+            const parsedToken = JwtDecode(token);
+            const now = new Date().getTime() / 1000;
+            if (parsedToken.exp - now < 0) {
+                destroyCookie(ctx, 'testUser');
+            } else {
+                ctx.store.dispatch(setUser(parsedToken.email));
+                axios.defaults.headers.common.Authorization = token;
+            }
+        }
+        const { user } = ctx.store.getState().userState;
+        if (user !== '' && ctx.pathname === '/admin/auth/login') {
+            ctx.res.writeHead(301, {
+                'Cache-Control': 'no-cache',
+                Location: '/admin'
+            });
+            ctx.res.end();
+        } else if (
+            (user === '' && ctx.pathname.includes('/admin') && ctx.pathname !== '/admin/auth/login') ||
+            ctx.res.statusCode === 404
+        ) {
+            ctx.res.writeHead(404, {
+                'Cache-Control': 'no-cache'
+            });
+            ctx.res.end();
+        }
     }
-    const { user } = ctx.store.getState().userState;
-    if (user !== '' && ctx.pathname === '/admin/auth/login') {
-      ctx.res.writeHead(301, {
-        'Cache-Control': 'no-cache',
-        Location: '/admin'
-      });
-      ctx.res.end();
-    } else if (
-      (user === '' && ctx.pathname.includes('/admin') && ctx.pathname !== '/admin/auth/login') ||
-      ctx.res.statusCode === 404
-    ) {
-      ctx.res.writeHead(404, {
-        'Cache-Control': 'no-cache'
-      });
-      ctx.res.end();
+    let pageProps = {};
+    if (Component.getInitialProps) {
+        pageProps = await Component.getInitialProps({ ctx });
     }
-  }
-  let pageProps = {};
-  if (Component.getInitialProps) {
-    pageProps = await Component.getInitialProps({ ctx });
-  }
-  return {
-    ...pageProps
-  };
+    return {
+        ...pageProps
+    };
 };
 
 export default withRedux(createStore)(withReduxSaga(MyApp));

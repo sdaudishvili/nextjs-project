@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lintfix": "eslint --fix --ext .js, --ignore-path .gitignore ."
   },
   "dependencies": {
     "@material-ui/core": "^4.9.5",
