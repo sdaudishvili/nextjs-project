@@ -3,27 +3,55 @@ import { useDispatch } from 'react-redux';
 import CropperJS from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
 import Button from '@material-ui/core/Button';
-import { uploadImage, cropImage } from '../../redux/actions/imageActions';
+import { uploadImage } from '../../redux/actions/imageActions';
 
 const cropper = React.createRef(null);
+
+function toBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+    });
+}
 
 function Cropper(props) {
     const dispatch = useDispatch();
     const [src, setSrc] = useState(null);
-    const [data, setdata] = useState(null);
+    const [data, setData] = useState(null);
 
     async function onCrop() {
-        const { x, y, width, height } = cropper.current.getData(true);
-        const file = await dispatch(cropImage({ x, y, width, height, src }));
-        setdata(file.data);
-        setSrc(null);
-        props.getImageUrl({ name: props.name, value: file.data });
+        cropper.current.getCroppedCanvas().toBlob(
+            (blob) => {
+                const time = new Date().getTime();
+                const splitedName = src.name.split('.');
+                const name =
+                    splitedName.length > 1 ? `${splitedName[0] + time}.${splitedName.pop()}` : `${time}.jpg`;
+                const formData = new FormData();
+                formData.append('image', new File([blob], name));
+                dispatch(
+                    uploadImage({
+                        file: formData,
+                        getResponse: (response) => {
+                            setData(response.data.filename);
+                            setSrc(null);
+                            props.getFilename(response.data.filename);
+                        }
+                    })
+                );
+            },
+            'image/jpeg',
+            0.99
+        );
     }
     async function getImageSrc(event) {
-        const file = await dispatch(uploadImage(event.target.files[0]));
-        setSrc(file.data.filename);
-        setdata(null);
+        const temp = event.target.files[0];
+        const base64 = await toBase64(temp);
+        setSrc({ image: base64, name: temp.name });
+        setData(null);
     }
+
     return (
         <>
             <div className="[ grid grid-cols-12 ]">
@@ -43,7 +71,7 @@ function Cropper(props) {
                 <div className="[ w-50-percent mx-auto ]">
                     <CropperJS
                         ref={cropper}
-                        src={STATICURL + src}
+                        src={src.image}
                         style={{ height: 300, width: '100%' }}
                         aspectRatio={props.x / props.y}
                         scalable
@@ -68,7 +96,9 @@ function Cropper(props) {
                     </Button>
                 </div>
             )}
-            {data && <img className="[ mt-2-0 w-50-percent mx-auto ]" src={STATICURL + data} alt="" />}
+            {data && (
+                <img className="[ mt-2-0 w-50-percent mx-auto ]" src={process.env.staticUrl + data} alt="" />
+            )}
         </>
     );
 }

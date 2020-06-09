@@ -1,4 +1,4 @@
-import { SET_UPLOADED_IMAGE_FILENAME, SET_UPLOADED_IMAGE_ERROR } from './actionTypes';
+import { SET_UPLOADED_IMAGE_FILENAME, SET_UPLOADED_IMAGE_ERROR, UPLOAD_IMAGE } from '../actionTypes';
 
 export const setImageFileName = (payload) => {
     return {
@@ -14,16 +14,9 @@ export const setImageError = (payload) => {
     };
 };
 
-export const uploadImage = (data) => {
-    const formData = new FormData();
-    formData.append('image', data);
-    return () => {
-        return axios.default.post('upload', formData);
-    };
-};
-
-export const cropImage = (data) => {
-    return () => {
-        return axios.default.post('upload/CropImage', data);
+export const uploadImage = (payload) => {
+    return {
+        type: UPLOAD_IMAGE,
+        payload
     };
 };

@@ -7,7 +7,8 @@ module.exports = withFonts(
     withCSS(
         withSass({
             env: {
-                baseApiUrl: 'http://localhost:3001/api/'
+                baseApiUrl: 'http://localhost:3001/api/',
+                staticUrl: 'http://localhost:3001/images/'
             },
             enableSvg: true,
             webpack: (config, { webpack }) => {
