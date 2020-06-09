@@ -4,14 +4,13 @@ import jwtDecode from 'jwt-decode';
 
 import { setUser, setAuthError } from '../actions/userActions';
 import { AUTHENTICATE_USER, SIGN_OUT } from '../actionTypes';
-import apifetch from '../../plugins/apifetch';
 
 const cookies = new Cookies();
 
 function* authenticateUser({ payload }) {
     try {
-        const response = yield call(apifetch, 'auth/adminAuthenticate', 'POST', payload);
-        const { token } = response;
+        const response = yield call(axios.post, 'auth/adminAuthenticate', payload);
+        const { token } = response.data;
         cookies.set('testUser', token, { path: '/' });
         yield put(setUser(jwtDecode(token).email));
     } catch (error) {

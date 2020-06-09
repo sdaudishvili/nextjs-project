@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps, store, router, errorCode }) {
 MyApp.getInitialProps = async ({ Component, ctx }) => {
     if (ctx.isServer) {
         const token = parseCookies(ctx).testUser;
-        if (token !== undefined) {
+        if (typeof token !== 'undefined') {
             const parsedToken = JwtDecode(token);
             const now = new Date().getTime() / 1000;
             if (parsedToken.exp - now < 0) {

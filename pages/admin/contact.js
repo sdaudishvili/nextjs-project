@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'next/router';
 import Input from '../../components/molecules/Input';
 import TwoButtons from '../../components/molecules/TwoButtons';
-import SectionHeader from '../../components/atoms/SectionHeader';
 import Page from '../../components/Page/Page';
 
 import { fetchContacts, updateContacts } from '../../redux/actions/contactsActions';
@@ -42,9 +41,8 @@ function Contacts({ router }) {
         />,
         <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
     ];
-    const head = <SectionHeader title="Information" />;
 
-    return <Page pageTitle="Contacts" head={head} body={elems} />;
+    return <Page pageTitle="Contacts" body={elems} />;
 }
 
 Contacts.getInitialProps = async ({ ctx }) => {

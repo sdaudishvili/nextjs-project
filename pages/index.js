@@ -9,7 +9,7 @@ export default function Blog() {
             <button
                 type="button"
                 className=" m-1-5 w-8-0 h-3-0 bg-primary"
-                onClick={() => dispatch(fetchContacts('asdf'))}
+                onClick={() => dispatch(fetchContacts())}
             >
                 asdf
             </button>
