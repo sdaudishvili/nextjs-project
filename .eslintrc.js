@@ -19,6 +19,7 @@ module.exports = {
   },
   plugins: ['jsx-a11y', 'react-hooks'],
   rules: {
+    'no-console': 0,
     'react/jsx-no-undef': [2, { allowGlobals: true }],
     'react/destructuring-assignment': 0,
     'react/jsx-filename-extension': [
