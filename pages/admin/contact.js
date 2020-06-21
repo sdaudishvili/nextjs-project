@@ -16,8 +16,8 @@ function Contacts({ router }) {
         setData({ ...data, ...contacts.data });
     }, [contacts]);
 
-    function handleInput(event) {
-        setData({ ...data, [event.target.name]: event.target.value });
+    function handleInput(e) {
+        setData({ ...data, [e.name]: e.value });
     }
 
     function onSubmit() {

@@ -17,12 +17,8 @@ function About({ router }) {
         setData({ ...data, ...about.data });
     }, [about]);
 
-    function handleInput(event) {
-        setData({ ...data, [event.target.name]: event.target.value });
-    }
-
-    function handleTinyInput(e) {
-        setData({ ...data, content: e.target.getContent() });
+    function handleInput(e) {
+        setData({ ...data, [e.name]: e.value });
     }
 
     function onSubmit() {
@@ -36,7 +32,12 @@ function About({ router }) {
 
     const elems = [
         <Input type="text" label="Title" value={data.title || ''} handleInput={handleInput} name="title" />,
-        <TinyMCE initialValue={data.content || ''} label="Content" handleInput={handleTinyInput} />,
+        <TinyMCE
+            initialValue={data.content || ''}
+            label="Content"
+            handleInput={handleInput}
+            name="content"
+        />,
         <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
     ];
 

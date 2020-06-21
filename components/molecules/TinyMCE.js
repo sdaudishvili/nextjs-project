@@ -4,7 +4,7 @@ import { uploadImage } from '../../redux/actions/imageActions';
 
 const apiKey = '2xmvsr71p1sbv3i9ut4ya36qcvc90s9zzv7k0zgcwnu6mzv1';
 const plugins = ['advlist autolink lists link image media', 'table paste code wordcount'];
-const toolbar = `code | undo redo | formatselect | bold italic backcolor | bullist numlist | image | media | link | custom-wrapper`;
+const toolbar = `code | undo redo | formatselect | bold italic backcolor blockquote | bullist numlist | image | media | link | myCustomToolbarButton`;
 
 function TinyMCE(props) {
     const dispatch = useDispatch();
@@ -42,8 +42,18 @@ function TinyMCE(props) {
             } else {
                 reject({ msg: 'WRONG URL' });
             }
+        },
+        setup: (editor) => {
+            editor.ui.registry.addButton('myCustomToolbarButton', {
+                text: 'My Custom Button',
+                onAction: () => alert('Button clicked!')
+            });
         }
     };
+
+    function onChange(e) {
+        props.handleInput({ name: props.name, value: e.target.getContent() });
+    }
 
     return (
         <div className="[ grid grid-cols-12 ]">
@@ -54,7 +64,7 @@ function TinyMCE(props) {
                         apiKey={apiKey}
                         initialValue={props.initialValue}
                         init={TinyInit}
-                        onChange={props.handleInput}
+                        onChange={onChange}
                     />
                 </NoSSR>
             </div>

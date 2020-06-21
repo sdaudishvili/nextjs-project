@@ -73,7 +73,7 @@ function Cropper(props) {
                         ref={cropper}
                         src={src.image}
                         style={{ height: 300, width: '100%' }}
-                        aspectRatio={props.x / props.y}
+                        aspectRatio={props.width / props.height}
                         scalable
                         zoomable={false}
                         viewMode={2}
@@ -97,7 +97,7 @@ function Cropper(props) {
                 </div>
             )}
             {data && (
-                <img className="[ mt-2-0 w-50-percent mx-auto ]" src={process.env.staticUrl + data} alt="" />
+                <img className="[ mt-2-0 w-30-percent mx-auto ]" src={process.env.staticUrl + data} alt="" />
             )}
         </>
     );
