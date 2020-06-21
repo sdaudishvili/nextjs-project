@@ -7,7 +7,8 @@ import { parseCookies, destroyCookie } from 'nookies';
 import JwtDecode from 'jwt-decode';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Error from 'next/error';
-import Layout from '../components/layout/DefaultLayout';
+import AdminLayout from '../components/layout/AdminLayout';
+import DefaultLayout from '../components/layout/DefaultLayout';
 import createStore from '../redux/store';
 import { setUser } from '../redux/actions/userActions';
 import Notifications from '../components/organisms/Notifications';
@@ -25,15 +26,21 @@ function MyApp({ Component, pageProps, store, router, errorCode }) {
     return (
         <Provider store={store}>
             <ThemeProvider theme={theme}>
-                <Notifications />
                 {router.pathname !== '/admin/auth/login' && router.pathname.includes('admin') && (
-                    <Layout>
-                        <Loader />
-                        <Component {...pageProps} />
-                    </Layout>
+                    <>
+                        <Notifications />
+                        <AdminLayout>
+                            <Loader />
+                            <Component {...pageProps} />
+                        </AdminLayout>
+                    </>
                 )}
                 {router.pathname === '/admin/auth/login' && <Component {...pageProps} />}
-                {!router.pathname.includes('admin') && <Component {...pageProps} />}
+                {!router.pathname.includes('admin') && (
+                    <DefaultLayout>
+                        <Component {...pageProps} />
+                    </DefaultLayout>
+                )}
             </ThemeProvider>
         </Provider>
     );

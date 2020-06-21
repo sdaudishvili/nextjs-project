@@ -5,7 +5,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'next/router';
-import { signOut } from '../../redux/actions/userActions';
+import { signOut } from '../../../redux/actions/userActions';
 
 function Header({ router }) {
     const dispatch = useDispatch();
