@@ -7,7 +7,7 @@ const colors = {
     black: '#000000',
     secondary: '#34bdd7',
     'admin-header': '#201F2B',
-    border: '#ebedf2',
+    border: '#262626',
     'border-focused': '#716aca',
     'body-bg': '#201F2B',
     'sign-in-avatar': '#DC004E',
