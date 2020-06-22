@@ -1,20 +1,7 @@
 import React from 'react';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 
 function DefaultLayoutHeader() {
-    return (
-        <div className="[ fixed top-0 left-0 right-0 text-white bg-header h-7-0 z-2 ]">
-            <Toolbar>
-                <IconButton edge="start" color="inherit" aria-label="open drawer">
-                    <MenuIcon />
-                </IconButton>
-                <div className="[ flex-grow ]" />
-                <IconButton edge="end" aria-label="email of current user" color="inherit" />
-            </Toolbar>
-        </div>
-    );
+    return <div className="[ text-white bg-primary h-7-0 z-2 ]" />;
 }
 
 export default DefaultLayoutHeader;

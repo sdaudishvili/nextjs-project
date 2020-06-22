@@ -14,12 +14,9 @@ module.exports = {
         lineHeight: require('./commons/ui/lineHeight'),
         zIndex: require('./commons/ui/zIndex'),
         translate: require('./commons/ui/translate'),
-        opacity: require('./commons/ui/opacity')
+        opacity: require('./commons/ui/opacity'),
+        maxWidth: require('./commons/ui/maxWidth')
     },
-    variants: {},
-    plugins: [
-        require('tailwindcss-transforms')({
-            '3d': false
-        })
-    ]
+    variants: ['responsive', 'first', 'last', 'odd', 'even', 'hover'],
+    plugins: []
 };

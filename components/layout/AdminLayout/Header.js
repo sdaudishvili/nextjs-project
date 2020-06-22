@@ -15,7 +15,7 @@ function AdminLayoutHeader({ router }) {
         router.push('/admin/auth/login');
     }
     return (
-        <div className="[ fixed top-0 left-0 right-0 text-white bg-header h-7-0 z-2 ]">
+        <div className="[ fixed top-0 left-0 right-0 text-white bg-admin-header h-7-0 z-2 ]">
             <Toolbar>
                 <IconButton edge="start" color="inherit" aria-label="open drawer">
                     <MenuIcon />
