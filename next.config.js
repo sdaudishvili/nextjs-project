@@ -11,13 +11,20 @@ module.exports = withFonts(
                 staticUrl: 'http://localhost:3001/images/'
             },
             enableSvg: true,
-            webpack: (config, { webpack }) => {
+            webpack: (config, { webpack, dev }) => {
                 config.plugins.push(
                     new webpack.ProvidePlugin({
                         axios: [path.resolve(__dirname, 'plugins/axios'), 'default'],
                         NoSSR: [path.resolve(__dirname, 'plugins/NoSSR'), 'default']
                     })
                 );
+                if (dev) {
+                    config.module.rules.push({
+                        test: /\.js$/,
+                        exclude: /node_modules/,
+                        loader: 'eslint-loader'
+                    });
+                }
                 return config;
             }
         })

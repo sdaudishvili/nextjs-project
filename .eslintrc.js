@@ -12,12 +12,10 @@ module.exports = {
     'plugin:jsx-a11y/recommended'
   ],
   globals: {
-    test: true,
     axios: true,
-    STATICURL: true,
     NoSSR: true
   },
-  plugins: ['jsx-a11y', 'react-hooks'],
+  plugins: ['jsx-a11y', 'react-hooks', 'prettier'],
   rules: {
     'no-console': 0,
     'react/jsx-no-undef': [2, { allowGlobals: true }],
