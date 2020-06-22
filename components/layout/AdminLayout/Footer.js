@@ -1,6 +1,6 @@
 import React from 'react';
 
-function DefaultLayoutFooter() {
+function AdminLayoutFooter() {
     return (
         <footer>
             <div className="[ h-7-0 ml-27-5 text-white ]" />
@@ -8,4 +8,4 @@ function DefaultLayoutFooter() {
     );
 }
 
-export default DefaultLayoutFooter;
+export default AdminLayoutFooter;

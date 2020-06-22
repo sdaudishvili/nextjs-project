@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { withRouter } from 'next/router';
 import { signOut } from '../../../redux/actions/userActions';
 
-function Header({ router }) {
+function DefaultLayoutHeader({ router }) {
     const dispatch = useDispatch();
 
     function handleSignOutButton() {
@@ -30,4 +30,4 @@ function Header({ router }) {
     );
 }
 
-export default withRouter(Header);
+export default withRouter(DefaultLayoutHeader);
