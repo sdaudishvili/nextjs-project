@@ -5,9 +5,9 @@ function DefaultLayout(props) {
     return (
         <div className="[ flex bg-black ]">
             <Sibebar />
-            <div>
+            <div className="[ flex-1 min-h-screen ]">
                 <Header />
-                <main role="main" className="[ flex-1 min-h-screen ]">
+                <main role="main" className="[ flex-1 ]">
                     {props.children}
                 </main>
             </div>

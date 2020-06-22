@@ -25,6 +25,24 @@ module.exports = withFonts(
                         loader: 'eslint-loader'
                     });
                 }
+                config.module.rules.push({
+                    test: /\.svg$/,
+                    use: [
+                        {
+                            loader: 'babel-loader'
+                        },
+                        {
+                            loader: 'react-svg-loader',
+                            options: {
+                                jsx: true,
+                                svgo: {
+                                    plugins: [{ removeTitle: false }],
+                                    floatPrecision: 2
+                                }
+                            }
+                        }
+                    ]
+                });
                 return config;
             }
         })
