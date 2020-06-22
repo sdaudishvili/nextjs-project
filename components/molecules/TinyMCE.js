@@ -9,7 +9,7 @@ const toolbar = `code | undo redo | formatselect | bold italic backcolor blockqu
 function TinyMCE(props) {
     const dispatch = useDispatch();
 
-    function imagesUploadHandler(blobInfo, success, failure) {
+    function imagesUploadHandler(blobInfo, success) {
         const formData = new FormData();
         formData.append('image', blobInfo.blob());
         dispatch(
@@ -46,7 +46,7 @@ function TinyMCE(props) {
         setup: (editor) => {
             editor.ui.registry.addButton('myCustomToolbarButton', {
                 text: 'My Custom Button',
-                onAction: () => alert('Button clicked!')
+                onAction: () => console.log('Button clicked!')
             });
         }
     };

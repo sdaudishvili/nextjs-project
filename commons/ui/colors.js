@@ -4,6 +4,7 @@ const colors = {
     'organe-primary': '#FF9D36',
     'sidebar-bg': '#282733',
     'nav-hover-bg': '#2f2e3c',
+    black: '#000000',
     secondary: '#34bdd7',
     'admin-header': '#201F2B',
     border: '#ebedf2',

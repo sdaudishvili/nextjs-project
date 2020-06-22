@@ -89,7 +89,8 @@ const spacing = {
     '100-percent': '100%',
 
     '100-vh': '100vh',
-    'base-space': 'var(--base-space)'
+    'base-space': 'var(--base-space)',
+    'base-x': '24.2rem'
 };
 
 module.exports = spacing;

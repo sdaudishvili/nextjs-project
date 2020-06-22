@@ -1,19 +1,13 @@
-import { useDispatch } from 'react-redux';
-import { fetchContacts } from '../redux/actions/contactsActions';
-
 export default function Blog() {
-    const dispatch = useDispatch();
-
     return (
-        <div className="flex">
-            <button
-                type="button"
-                className=" m-1-5 w-8-0 h-3-0 bg-primary"
-                onClick={() => dispatch(fetchContacts())}
-            >
-                asdf
-            </button>
-            <h1>My Blog</h1>
-        </div>
+        <section className="flex">
+            <div className="[ flex-1 pl-base-x text-4-0 ]">
+                <h1 className="[ w-60-percent ]">Independent Group of Initiators</h1>
+                <div className="[ bg-black h-10-0 ]" />
+            </div>
+            <div className="[ w-60-percent ]">
+                <img src="/images/image2.jpg" alt="" />
+            </div>
+        </section>
     );
 }
