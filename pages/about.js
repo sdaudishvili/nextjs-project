@@ -1,3 +1,3 @@
 export default function About() {
-    return <main />;
+  return <main />;
 }

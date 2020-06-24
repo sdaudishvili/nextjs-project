@@ -15,73 +15,73 @@ import Notifications from '../components/organisms/Notifications';
 import Loader from '../components/molecules/Loader';
 
 const theme = createMuiTheme({
-    typography: {
-        htmlFontSize: 10
-    }
+  typography: {
+    htmlFontSize: 10
+  }
 });
 function MyApp({ Component, pageProps, store, router, errorCode }) {
-    if (errorCode) {
-        return <Error statusCode={404} />;
-    }
-    return (
-        <Provider store={store}>
-            <ThemeProvider theme={theme}>
-                {router.pathname !== '/admin/auth/login' && router.pathname.includes('admin') && (
-                    <>
-                        <Notifications />
-                        <AdminLayout>
-                            <Loader />
-                            <Component {...pageProps} />
-                        </AdminLayout>
-                    </>
-                )}
-                {router.pathname === '/admin/auth/login' && <Component {...pageProps} />}
-                {!router.pathname.includes('admin') && (
-                    <DefaultLayout>
-                        <Component {...pageProps} />
-                    </DefaultLayout>
-                )}
-            </ThemeProvider>
-        </Provider>
-    );
+  if (errorCode) {
+    return <Error statusCode={404} />;
+  }
+  return (
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        {router.pathname !== '/admin/auth/login' && router.pathname.includes('admin') && (
+          <>
+            <Notifications />
+            <AdminLayout>
+              <Loader />
+              <Component {...pageProps} />
+            </AdminLayout>
+          </>
+        )}
+        {router.pathname === '/admin/auth/login' && <Component {...pageProps} />}
+        {!router.pathname.includes('admin') && (
+          <DefaultLayout>
+            <Component {...pageProps} />
+          </DefaultLayout>
+        )}
+      </ThemeProvider>
+    </Provider>
+  );
 }
 MyApp.getInitialProps = async ({ Component, ctx }) => {
-    if (ctx.isServer) {
-        const token = parseCookies(ctx).testUser;
-        if (typeof token !== 'undefined') {
-            const parsedToken = JwtDecode(token);
-            const now = new Date().getTime() / 1000;
-            if (parsedToken.exp - now < 0) {
-                destroyCookie(ctx, 'testUser');
-            } else {
-                ctx.store.dispatch(setUser(parsedToken.email));
-                axios.defaults.headers.common.Authorization = token;
-            }
-        }
-        const { user } = ctx.store.getState().userState;
-        if (user !== '' && ctx.pathname === '/admin/auth/login') {
-            ctx.res.writeHead(301, {
-                'Cache-Control': 'no-cache',
-                Location: '/admin'
-            });
-            ctx.res.end();
-        } else if (
-            (user === '' && ctx.pathname.includes('/admin') && ctx.pathname !== '/admin/auth/login') ||
-            ctx.res.statusCode === 404
-        ) {
-            ctx.res.writeHead(404, {
-                'Cache-Control': 'no-cache'
-            });
-            ctx.res.end();
-        }
+  if (ctx.isServer) {
+    const token = parseCookies(ctx).testUser;
+    if (typeof token !== 'undefined') {
+      const parsedToken = JwtDecode(token);
+      const now = new Date().getTime() / 1000;
+      if (parsedToken.exp - now < 0) {
+        destroyCookie(ctx, 'testUser');
+      } else {
+        ctx.store.dispatch(setUser(parsedToken.email));
+        axios.defaults.headers.common.Authorization = token;
+      }
     }
-    let pageProps = {};
-    if (Component.getInitialProps) {
-        pageProps = await Component.getInitialProps({ ctx });
+    const { user } = ctx.store.getState().userState;
+    if (user !== '' && ctx.pathname === '/admin/auth/login') {
+      ctx.res.writeHead(301, {
+        'Cache-Control': 'no-cache',
+        Location: '/admin'
+      });
+      ctx.res.end();
+    } else if (
+      (user === '' && ctx.pathname.includes('/admin') && ctx.pathname !== '/admin/auth/login') ||
+      ctx.res.statusCode === 404
+    ) {
+      ctx.res.writeHead(404, {
+        'Cache-Control': 'no-cache'
+      });
+      ctx.res.end();
     }
-    return {
-        ...pageProps
-    };
+  }
+  let pageProps = {};
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps({ ctx });
+  }
+  return {
+    ...pageProps
+  };
 };
 
 export default withRedux(createStore)(withReduxSaga(MyApp));
