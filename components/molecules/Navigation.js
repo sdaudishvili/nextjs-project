@@ -13,7 +13,7 @@ function Navigation() {
   const listItems = routes.map((e) => (
     <li key={e.id}>
       <Link href={e.path}>
-        <div className="nav-item [ px-2-5 h-full w-full text-1-6 text-white flex items-center cursor-pointer ] ">
+        <div className="nav-item [ px-2-5 h-full w-full text-1-6 text-white flex items-center cursor-pointer font-bd ] ">
           {e.title}
         </div>
       </Link>
@@ -21,7 +21,7 @@ function Navigation() {
   ));
   return (
     <nav className="[ h-full ]">
-      <ul className="[ flex h-full flex ]">{listItems}</ul>
+      <ul className="[ flex h-full ]">{listItems}</ul>
     </nav>
   );
 }

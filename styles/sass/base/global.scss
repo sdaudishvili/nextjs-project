@@ -74,13 +74,6 @@ html {
   @media only screen and (max-width: 320px) {
     font-size: 26%;
   }
-  @include scrollbars(
-    $size: 10px,
-    $thumb-color: var(--primary-bg-color),
-    $track-color: grey,
-    $hover-color: #fe7b2b,
-    $hold-color: #ff954d
-  );
 }
 
 body {
@@ -91,7 +84,6 @@ body {
   color: $color-base-text;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-y: overlay;
 }
 
 a {

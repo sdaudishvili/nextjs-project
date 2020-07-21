@@ -5,8 +5,8 @@ export default function Logo() {
         <img className="[ h-full ]" src="/images/logo.png" alt="" />
       </div>
       <div className="[ flex items-center ml-3-0 ]">
-        <div className="[ text-5-0 ]">IGI</div>
-        <div className="[ text-1-4 mt-0-5 ]">
+        <div className="[ text-5-0 font-bd ]">IGI</div>
+        <div className="[ text-1-4 mt-0-5 font-md ]">
           Independent <br /> Group of <br />
           Initiators
         </div>
