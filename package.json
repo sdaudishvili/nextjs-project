@@ -17,6 +17,7 @@
     "axios": "^0.19.2",
     "babel-loader": "^8.1.0",
     "babel-plugin-inline-react-svg": "^1.1.1",
+    "clsx": "^1.1.1",
     "jwt-decode": "^2.2.0",
     "next": "^9.4.4",
     "next-fonts": "^1.0.3",

@@ -1,12 +1,18 @@
 .nav-item {
+  $self: &;
+  &__action {
     @apply relative;
     &:after {
-        content: '';
-        @apply absolute bg-blue-primary h-0 bottom-0 left-0 right-0 duration-200;
+      content: '';
+      @apply absolute h-0 bottom-0 left-0 right-0 duration-200 bg-primary-hover;
     }
-    &:hover {
-        &:after {
-            height: 1rem;
-        }
+  }
+
+  &:hover {
+    #{$self}__action {
+      &:after {
+        height: 3px;
+      }
     }
+  }
 }

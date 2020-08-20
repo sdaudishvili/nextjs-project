@@ -78,33 +78,14 @@ html {
 
 body {
   position: relative;
-  font-family: var(--base-font-family);
+  font-family: theme('fontFamily.m-sbd');
   text-rendering: optimizeLegibility;
-  background-color: $color-base-background;
-  color: $color-base-text;
+  background-color: theme('colors.white');
+  color: theme('colors.primary-text');
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  color: var(--base-text-color);
-}
-
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0.1s;
-}
-
-.page-enter,
-.page-leave-to {
-  opacity: 0;
-}
-
-.layout-enter-active,
-.layout-leave-active {
-  transition: opacity 0.5s;
-}
-.layout-enter,
-.layout-leave-active {
-  opacity: 0;
+  color: theme('colors.primary-text');
 }

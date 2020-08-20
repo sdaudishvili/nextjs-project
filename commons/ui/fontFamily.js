@@ -1,20 +1,14 @@
 const fontFamily = {
-  bl: '"Gotham-Black"',
-  'bl-it': '"Gotham-BlackItalic"',
-  bd: '"Gotham-Bold"',
-  'bd-it': '"Gotham-BoldItalic"',
-  lt: '"Gotham-Light"',
-  'lt-it': '"Gotham-LightItalic"',
-  md: '"Gotham-Medium"',
-  'md-it': '"Gotham-MediumItalic"',
-  th: '"Gotham-Thin"',
-  'th-it': '"Gotham-ThinItalic"',
-  ultra: '"Gotham-Ultra"',
-  'ulta-it': '"Gotham-UltraItalic"',
-  xlt: '"Gotham-XLight"',
-  'xlt-it': '"Gotham-XLightItalic"',
-  book: '"Gotham-Book"',
-  'book-it': '"Gotham-BookItalic"'
+  'm-bd': '"Montserrat-Bold"',
+  'm-md': '"Montserrat-Medium"',
+  'm-sbd': '"Montserrat-SemiBold"',
+  'm-rg': '"Montserrat-Regular"',
+  'p-bd': '"PlayfairDisplay-Bold"',
+  'p-bd-it': '"PlayfairDisplay-BoldItalic"',
+  'p-md': '"PlayfairDisplay-Medium"',
+  'p-md-it': '"PlayfairDisplay-MediumItalic"',
+  'p-sbd': '"PlayfairDisplay-SemiBold"',
+  'p-sbd-it': '"PlayfairDisplay-SemiBoldItalic"'
 };
 
 module.exports = fontFamily;

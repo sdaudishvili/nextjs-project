@@ -3,38 +3,20 @@
 /// @require {function} font-url - Font asset helper
 //
 
-$fonts: "Gotham-Black",
-"Gotham-BlackItalic",
-"Gotham-Bold",
-"Gotham-BoldItalic",
-"Gotham-Light",
-"Gotham-LightItalic",
-"Gotham-Medium",
-"Gotham-MediumItalic",
-"Gotham-Thin"
-"Gotham-ThinItalic",
-"Gotham-Ultra",
-"Gotham-UltraItalic",
-"Gotham-XLight",
-"Gotham-XLightItalic",
-"Gotham-Book",
-"Gotham-BookItalic",
-"fontello";
-
-
-
+$fonts: 'Montserrat-Bold', 'Montserrat-Medium', 'Montserrat-SemiBold', 'Montserrat-Regular',
+  'PlayfairDisplay-Bold', 'PlayfairDisplay-BoldItalic', 'PlayfairDisplay-Medium',
+  'PlayfairDisplay-MediumItalic', 'PlayfairDisplay-SemiBold', 'PlayfairDisplay-SemiBoldItalic';
 
 @each $font in $fonts {
-  @if($font !='') {
+  @if ($font != '') {
     @font-face {
       font-family: $font;
       src: font-url('#{$font}.eot'); /* IE9 Compat Modes */
-      src: font-url('#{$font}.eot?#iefix') format("embedded-opentype"), /* IE6-IE8 */
-      font-url('#{$font}.otf') format("opentype"), /* Open Type Font */
-      font-url('#{$font}.svg##{$font}') format('svg'),
-      font-url('#{$font}.ttf') format('truetype'),
-      font-url('#{$font}.woff2') format('woff2'),
-      font-url('#{$font}.woff') format('woff');
+      src: font-url('#{$font}.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */ font-url('#{$font}.otf') format('opentype'),
+        /* Open Type Font */ font-url('#{$font}.svg##{$font}') format('svg'),
+        font-url('#{$font}.ttf') format('truetype'), font-url('#{$font}.woff2') format('woff2'),
+        font-url('#{$font}.woff') format('woff');
       font-weight: normal;
       font-style: normal;
     }

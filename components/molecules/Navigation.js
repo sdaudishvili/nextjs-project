@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import './style.scss';
+import { useRouter } from 'next/router';
 
 const routes = [
   { id: 0, path: '/', title: 'Home' },
@@ -10,18 +11,20 @@ const routes = [
 ];
 
 function Navigation() {
-  const listItems = routes.map((e) => (
-    <li key={e.id}>
-      <Link href={e.path}>
-        <div className="nav-item [ px-2-5 h-full w-full text-1-6 text-white flex items-center cursor-pointer font-bd ] ">
-          {e.title}
-        </div>
-      </Link>
-    </li>
-  ));
+  const router = useRouter();
   return (
     <nav className="[ h-full ]">
-      <ul className="[ flex h-full ]">{listItems}</ul>
+      <ul className="[ flex h-full text-1-4 text-white uppercase font-ms-bd ]">
+        {routes.map((e) => (
+          <li key={e.id}>
+            <Link href={e.path}>
+              <div className="nav-item [ px-3-2 hover:bg-primary duration-200 h-full cursor-pointer ]">
+                <div className="nav-item__action [ w-full h-full flex items-center ]">{e.title}</div>
+              </div>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 }
