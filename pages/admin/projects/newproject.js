@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { withRouter } from 'next/router';
-import Page from '../../../components/Page/Page';
+import Page from '../../../components/organisms/Page/Page';
 import Input from '../../../components/molecules/Input';
 import TwoButtons from '../../../components/molecules/TwoButtons';
 import Cropper from '../../../components/molecules/Cropper';

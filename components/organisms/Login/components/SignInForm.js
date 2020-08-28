@@ -1,7 +1,6 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
+import { TextField, Button, Link } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 const SignInForm = (props) => {
   const { onSubmit, error } = props;

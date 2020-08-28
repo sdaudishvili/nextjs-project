@@ -2,14 +2,11 @@ import Container from '@material-ui/core/Container';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import SignInAvatar from './SignInAvatar';
-import SignInForm from './SignInForm';
-import Copyright from './Copyright';
-import NoSSR from '../atoms/NoSSR';
+import { authenticateUser } from '@/redux/actions/userActions';
+import { Copyright, SignInForm, SignInAvatar } from './components';
+import NoSSR from '../../atoms/NoSSR';
 
-import { authenticateUser } from '../../redux/actions/userActions';
-
-const SignIn = () => {
+const Login = () => {
   const router = useRouter();
   const user = useSelector((state) => state.userState);
   const dispatch = useDispatch();
@@ -39,4 +36,4 @@ const SignIn = () => {
     </Container>
   );
 };
-export default SignIn;
+export default Login;

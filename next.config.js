@@ -12,10 +12,10 @@ module.exports = withFonts(
       },
       enableSvg: true,
       webpack: (config, { webpack, dev }) => {
+        config.resolve.alias['@'] = path.join(__dirname, '');
         config.plugins.push(
           new webpack.ProvidePlugin({
-            axios: [path.resolve(__dirname, 'plugins/axios'), 'default'],
-            PropTypes: 'prop-types'
+            axios: [path.resolve(__dirname, 'plugins/axios'), 'default']
           })
         );
         if (dev) {

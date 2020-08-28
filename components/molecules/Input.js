@@ -1,15 +1,34 @@
+import PropTypes from 'prop-types';
+
 function Input(props) {
-  function onChange(e) {
-    props.handleInput({ name: e.target.name, value: e.target.value });
-  }
+  const { label, type, name, value, handleInput } = props;
+  const onChange = (e) => {
+    handleInput({ name: e.target.name, value: e.target.value });
+  };
   return (
     <div className="[ grid grid-cols-12 ]">
-      <label className="[ col-span-2 text-right self-center mr-3-0 ]">{props.label}</label>
+      <div className="[ col-span-2 text-right self-center mr-3-0 ]">{label}</div>
       <div className="[ col-span-7 ]">
-        <input type={props.type} onChange={onChange} name={props.name} value={props.value} />
+        <input type={type} onChange={onChange} name={name} value={value} />
       </div>
     </div>
   );
 }
+
+Input.propTypes = {
+  label: PropTypes.string,
+  handleInput: PropTypes.func,
+  name: PropTypes.string,
+  value: PropTypes.string,
+  type: PropTypes.string
+};
+
+Input.defaultProps = {
+  label: '',
+  handleInput: () => {},
+  name: '',
+  value: '',
+  type: 'text'
+};
 
 export default Input;

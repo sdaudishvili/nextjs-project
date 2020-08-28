@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'next/router';
 import Input from '../../components/molecules/Input';
 import TwoButtons from '../../components/molecules/TwoButtons';
-import Page from '../../components/Page/Page';
+import Page from '../../components/organisms/Page/Page';
 
 import { fetchContacts, updateContacts } from '../../redux/actions/contactsActions';
 

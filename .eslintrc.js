@@ -11,8 +11,7 @@ module.exports = {
   },
   globals: {
     React: true,
-    axios: true,
-    PropTypes: true
+    axios: true
   },
   rules: {
     'no-unused-vars': ['error'],

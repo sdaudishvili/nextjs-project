@@ -8,12 +8,11 @@ import JwtDecode from 'jwt-decode';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 // import Error from 'next/error';
 import PropTypes from 'prop-types';
-import AdminLayout from '../components/layout/AdminLayout';
-import DefaultLayout from '../components/layout/DefaultLayout';
-import createStore from '../redux/store';
-import { setUser } from '../redux/actions/userActions';
-import Notifications from '../components/organisms/Notifications';
-import Loader from '../components/molecules/Loader';
+import { AdminLayout, DefaultLayout } from '@/components/layout';
+import createStore from '@/redux/store';
+import { setUser } from '@/redux/actions/userActions';
+import { Notifications } from '@/components/organisms';
+import { Loader } from '@/components/molecules';
 
 const theme = createMuiTheme({
   typography: {

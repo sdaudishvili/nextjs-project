@@ -1,15 +1,18 @@
 import { Editor } from '@tinymce/tinymce-react';
 import { useDispatch } from 'react-redux';
-import { uploadImage } from '../../redux/actions/imageActions';
+import PropTypes from 'prop-types';
+import { NoSSR } from '@/components/atoms';
+import { uploadImage } from '@/redux/actions/imageActions';
 
 const apiKey = '2xmvsr71p1sbv3i9ut4ya36qcvc90s9zzv7k0zgcwnu6mzv1';
 const plugins = ['advlist autolink lists link image media', 'table paste code wordcount'];
 const toolbar = `code | undo redo | formatselect | bold italic backcolor blockquote | bullist numlist | image | media | link | myCustomToolbarButton`;
 
 function TinyMCE(props) {
+  const { handleInput, name, label, initialValue } = props;
   const dispatch = useDispatch();
 
-  function imagesUploadHandler(blobInfo, success) {
+  const imagesUploadHandler = (blobInfo, success) => {
     const formData = new FormData();
     formData.append('image', blobInfo.blob());
     dispatch(
@@ -20,7 +23,7 @@ function TinyMCE(props) {
         }
       })
     );
-  }
+  };
   const TinyInit = {
     height: 500,
     menubar: true,
@@ -51,19 +54,34 @@ function TinyMCE(props) {
     }
   };
 
-  function onChange(e) {
-    props.handleInput({ name: props.name, value: e.target.getContent() });
-  }
+  const onChange = (e) => {
+    handleInput({ name, value: e.target.getContent() });
+  };
 
   return (
     <div className="[ grid grid-cols-12 ]">
-      <label className="[ col-span-2 text-right mr-3-0 ]">{props.label}</label>
+      <div className="[ col-span-2 text-right mr-3-0 ]">{label}</div>
       <div className="[ col-span-7 ]">
         <NoSSR>
-          <Editor apiKey={apiKey} initialValue={props.initialValue} init={TinyInit} onChange={onChange} />
+          <Editor apiKey={apiKey} initialValue={initialValue} init={TinyInit} onChange={onChange} />
         </NoSSR>
       </div>
     </div>
   );
 }
+
+TinyMCE.propTypes = {
+  handleInput: PropTypes.func,
+  name: PropTypes.string,
+  label: PropTypes.string,
+  initialValue: PropTypes.string
+};
+
+TinyMCE.defaultProps = {
+  handleInput: () => {},
+  name: '',
+  label: '',
+  initialValue: ''
+};
+
 export default TinyMCE;

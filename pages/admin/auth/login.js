@@ -1,5 +1,5 @@
-import SignIn from '../../../components/Login/SignIn';
+import { Login } from '@/components/organisms';
 
-export default function Login() {
-  return <SignIn />;
+export default function LoginPage() {
+  return <Login />;
 }

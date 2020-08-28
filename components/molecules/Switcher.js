@@ -1,20 +1,35 @@
-import React from 'react';
 import Switch from '@material-ui/core/Switch';
+import PropTypes from 'prop-types';
 
-function Switcher(props) {
+const Switcher = (props) => {
+  const { label, isChecked, handleChange, name } = props;
   return (
     <div className="[ grid grid-cols-12 ]">
-      <label className="[ col-span-2 text-right self-center mr-3-0 ]">{props.label}</label>
+      <div className="[ col-span-2 text-right self-center mr-3-0 ]">{label}</div>
       <div className="[ col-span-7 ]">
         <Switch
-          checked={props.isChecked}
-          onChange={props.handleChange}
+          checked={isChecked}
+          onChange={handleChange}
           inputProps={{ 'aria-label': 'secondary checkbox' }}
-          name={props.name}
+          name={name}
         />
       </div>
     </div>
   );
-}
+};
+
+Switcher.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string,
+  isChecked: PropTypes.bool,
+  handleChange: PropTypes.func
+};
+
+Switcher.defaultProps = {
+  label: '',
+  name: '',
+  isChecked: false,
+  handleChange: () => {}
+};
 
 export default Switcher;

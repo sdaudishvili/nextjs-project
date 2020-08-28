@@ -4,7 +4,7 @@ import { withRouter } from 'next/router';
 import Input from '../../components/molecules/Input';
 import TwoButtons from '../../components/molecules/TwoButtons';
 import TinyMCE from '../../components/molecules/TinyMCE';
-import Page from '../../components/Page/Page';
+import Page from '../../components/organisms/Page/Page';
 
 import { fetchAbout, updateAbout } from '../../redux/actions/aboutActions';
 
