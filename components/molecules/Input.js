@@ -11,6 +11,19 @@ function Input(props) {
       <div className="[ col-span-7 ]">
         <input type={type} onChange={onChange} name={name} value={value} />
       </div>
+      <style jsx>{`
+        input {
+          width: 100%;
+          border: 1px solid #ebedf2;
+          padding: 0.5rem 1rem;
+          transition: 0.15s;
+        }
+
+        input:focus {
+          border-color: #716aca;
+          transition: 0.15s;
+        }
+      `}</style>
     </div>
   );
 }

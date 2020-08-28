@@ -9,7 +9,7 @@ const Button = (props) => {
       type="button"
       className={clsx(
         className,
-        'btn [ h-5-0 flex items-center justify-center bg-primary px-3-0 text-1-6 relative hover:bg-primary-hover duration-200 ]'
+        'btn [ h-5-0 flex items-center justify-center bg-primary px-3-0 text-1-6 relative hover:bg-primary-hover duration-200 text-white ]'
       )}
     >
       {children}
