@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import './style.scss';
 
 const routes = [
   { id: 0, path: '/', title: 'Home' },
@@ -23,6 +22,26 @@ function Navigation() {
           </li>
         ))}
       </ul>
+      <style jsx>{`
+        .nav-item {
+          $self: &;
+          &__action {
+            @apply relative;
+            &:after {
+              content: '';
+              @apply absolute h-0 bottom-0 left-0 right-0 duration-200 bg-primary-hover;
+            }
+          }
+
+          &:hover {
+            #{$self}__action {
+              &:after {
+                height: 3px;
+              }
+            }
+          }
+        }
+      `}</style>
     </nav>
   );
 }

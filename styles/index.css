@@ -16,4 +16,19 @@ input:focus {
   border-color: #716aca;
   transition: 0.15s;
 }
+
+svg {
+  fill: currentColor;
+  circle {
+    fill: none;
+  }
+}
+
+*:focus {
+  outline: none !important;
+}
+
+.bg-current {
+  background-color: currentColor;
+}
 /*! purgecss end ignore */
