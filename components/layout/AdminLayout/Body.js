@@ -1,7 +1,15 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
-function AdminLayoutBody(props) {
-  return <div className="[ mb-7-0 flex-1 ml-27-5 mt-7-0 ]">{props.children}</div>;
-}
+const AdminLayoutBody = (props) => {
+  const { children } = props;
+  return <div className="[ mb-7-0 flex-1 ml-27-5 mt-7-0 ]">{children}</div>;
+};
 
+AdminLayoutBody.propTypes = {
+  children: PropTypes.string
+};
+
+AdminLayoutBody.defaultProps = {
+  children: ''
+};
 export default AdminLayoutBody;

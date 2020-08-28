@@ -1,6 +1,7 @@
 import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 function CircularDeterminate() {
   const [progress, setProgress] = React.useState(0);
@@ -30,3 +31,11 @@ function CircularDeterminate() {
 export default function Loader(props) {
   return <>{useSelector((state) => state.notifs.loading || props.loading) && <CircularDeterminate />}</>;
 }
+
+Loader.propTypes = {
+  loading: PropTypes.any
+};
+
+Loader.defaultProps = {
+  loading: null
+};

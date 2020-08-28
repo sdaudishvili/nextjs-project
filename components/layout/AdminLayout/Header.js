@@ -4,10 +4,11 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { useDispatch } from 'react-redux';
-import { withRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { signOut } from '../../../redux/actions/userActions';
 
-function AdminLayoutHeader({ router }) {
+const AdminLayoutHeader = () => {
+  const router = useRouter();
   const dispatch = useDispatch();
 
   function handleSignOutButton() {
@@ -28,6 +29,6 @@ function AdminLayoutHeader({ router }) {
       </Toolbar>
     </div>
   );
-}
+};
 
-export default withRouter(AdminLayoutHeader);
+export default AdminLayoutHeader;

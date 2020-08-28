@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import './style.scss';
-import { useRouter } from 'next/router';
 
 const routes = [
   { id: 0, path: '/', title: 'Home' },
@@ -11,7 +10,6 @@ const routes = [
 ];
 
 function Navigation() {
-  const router = useRouter();
   return (
     <nav className="[ h-full ]">
       <ul className="[ flex h-full text-1-4 text-white uppercase font-ms-bd ]">

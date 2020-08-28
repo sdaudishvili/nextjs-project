@@ -6,7 +6,8 @@ import withReduxSaga from 'next-redux-saga';
 import { parseCookies, destroyCookie } from 'nookies';
 import JwtDecode from 'jwt-decode';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Error from 'next/error';
+// import Error from 'next/error';
+import PropTypes from 'prop-types';
 import AdminLayout from '../components/layout/AdminLayout';
 import DefaultLayout from '../components/layout/DefaultLayout';
 import createStore from '../redux/store';
@@ -19,10 +20,10 @@ const theme = createMuiTheme({
     htmlFontSize: 10
   }
 });
-function MyApp({ Component, pageProps, store, router, errorCode }) {
-  if (errorCode) {
-    return <Error statusCode={404} />;
-  }
+const App = ({ Component, pageProps, store, router }) => {
+  // if (errorCode) {
+  //   return <Error statusCode={404} />;
+  // }
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
@@ -44,8 +45,8 @@ function MyApp({ Component, pageProps, store, router, errorCode }) {
       </ThemeProvider>
     </Provider>
   );
-}
-MyApp.getInitialProps = async ({ Component, ctx }) => {
+};
+App.getInitialProps = async ({ Component, ctx }) => {
   if (ctx.isServer) {
     const token = parseCookies(ctx).testUser;
     if (typeof token !== 'undefined') {
@@ -84,4 +85,16 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
   };
 };
 
-export default withRedux(createStore)(withReduxSaga(MyApp));
+App.propTypes = {
+  Component: PropTypes.func.isRequired,
+  pageProps: PropTypes.object,
+  store: PropTypes.object,
+  router: PropTypes.object
+};
+
+App.defaultProps = {
+  pageProps: {},
+  store: {},
+  router: {}
+};
+export default withRedux(createStore)(withReduxSaga(App));

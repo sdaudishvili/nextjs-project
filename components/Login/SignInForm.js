@@ -3,11 +3,12 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 
-function SignInForm(props) {
+const SignInForm = (props) => {
+  const { onSubmit, error } = props;
   return (
-    <form className="[ mt-1-0 w-full  ]" onSubmit={props.onSubmit}>
+    <form className="[ mt-1-0 w-full  ]" onSubmit={onSubmit}>
       <TextField
-        error={props.error}
+        error={error}
         variant="outlined"
         margin="normal"
         required
@@ -19,7 +20,7 @@ function SignInForm(props) {
         autoFocus
       />
       <TextField
-        error={props.error}
+        error={error}
         variant="outlined"
         margin="normal"
         required
@@ -40,6 +41,15 @@ function SignInForm(props) {
       </Link>
     </form>
   );
-}
+};
+
+SignInForm.propTypes = {
+  onSubmit: PropTypes.func,
+  error: PropTypes.bool
+};
+SignInForm.defaultProps = {
+  onSubmit: () => {},
+  error: false
+};
 
 export default SignInForm;

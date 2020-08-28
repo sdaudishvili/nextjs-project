@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 import React from 'react';
 import List from '@material-ui/core/List';
 import NavItem from './NavItem';
@@ -9,6 +10,8 @@ const routes = [
 ];
 
 function Navigation() {
+  console.log('axios', axios);
+  console.log('NoSSR', NoSSR);
   return (
     <NoSSR>
       <List component="nav" aria-label="main">

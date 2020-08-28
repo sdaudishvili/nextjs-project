@@ -1,44 +1,54 @@
 module.exports = {
+  root: true,
+  parser: 'babel-eslint',
+  extends: ['airbnb', 'plugin:prettier/recommended', 'prettier/react'],
   env: {
     browser: true,
+    commonjs: true,
+    es6: true,
+    jest: true,
     node: true
   },
-  parser: 'babel-eslint',
-  extends: [
-    'airbnb',
-    'plugin:prettier/recommended',
-    'prettier/react',
-    'prettier/standard',
-    'plugin:jsx-a11y/recommended'
-  ],
   globals: {
+    React: true,
     axios: true,
-    NoSSR: true
+    NoSSR: true,
+    PropTypes: true
   },
-  plugins: ['jsx-a11y', 'react-hooks', 'prettier'],
   rules: {
-    'no-console': 0,
-    'react/jsx-no-undef': [2, { allowGlobals: true }],
-    'react/destructuring-assignment': 0,
-    'react/jsx-filename-extension': [
-      1,
+    'no-unused-vars': ['error'],
+    'jsx-a11y/href-no-hash': ['off'],
+    'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
+    'import/no-unresolved': ['off'],
+    'no-shadow': ['off'],
+    'react/jsx-props-no-spreading': ['off'],
+    'react/forbid-prop-types': ['off'],
+    'react/no-unescaped-entities': ['off'],
+    'import/prefer-default-export': ['off'],
+    'import/export': ['off'],
+    'no-return-assign': ['off'],
+    'no-console': ['off'],
+    'import/no-extraneous-dependencies': ['off'],
+    'global-require': ['off'],
+    'react/react-in-jsx-scope': ['off'],
+    'jsx-a11y/anchor-is-valid': ['off'],
+
+    'import/extensions': ['off'],
+    'import/named': ['off'],
+
+    'max-len': [
+      'warn',
       {
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
+        code: 120,
+        tabWidth: 2,
+        comments: 120,
+        ignoreComments: false,
+        ignoreTrailingComments: true,
+        ignoreUrls: true,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
+        ignoreRegExpLiterals: true
       }
-    ],
-    'import/no-extraneous-dependencies': [1, { devDependencies: true }],
-    'jsx-a11y/label-has-associated-control': [
-      2,
-      {
-        wrap: 1
-      }
-    ],
-    'react-hooks/rules-of-hooks': 'error',
-    'react/react-in-jsx-scope': 'off',
-    'jsx-a11y/anchor-is-valid': 0,
-    'react/prop-types': 0,
-    'react/jsx-props-no-spreading': 0,
-    'jsx-a11y/no-static-element-interactions': 0,
-    'jsx-a11y/click-events-have-key-events': 0
+    ]
   }
 };

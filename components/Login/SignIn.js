@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-no-undef */
 import Container from '@material-ui/core/Container';
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import SignInAvatar from './SignInAvatar';
 import SignInForm from './SignInForm';
@@ -8,7 +9,8 @@ import Copyright from './Copyright';
 
 import { authenticateUser } from '../../redux/actions/userActions';
 
-function SignIn({ router }) {
+const SignIn = () => {
+  const router = useRouter();
   const user = useSelector((state) => state.userState);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -36,5 +38,5 @@ function SignIn({ router }) {
       <Copyright />
     </Container>
   );
-}
-export default withRouter(SignIn);
+};
+export default SignIn;
