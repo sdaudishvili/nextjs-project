@@ -1,6 +1,9 @@
-export default function Index() {
+import { MainContainer } from '@/components/organisms';
+
+const Index = () => {
   return (
-    <section className="[ pl-base-x grid grid-cols-2 ]">
+    <section className="[ ]">
+      <MainContainer />
       <div className="[ text-5-0 font-md pr-10-0 pt-6-3 ]">
         <h1>
           Independent Group <br /> of Initiators
@@ -17,4 +20,6 @@ export default function Index() {
       </div>
     </section>
   );
-}
+};
+
+export default Index;
