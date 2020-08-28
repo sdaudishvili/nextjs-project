@@ -15,7 +15,6 @@ module.exports = withFonts(
         config.plugins.push(
           new webpack.ProvidePlugin({
             axios: [path.resolve(__dirname, 'plugins/axios'), 'default'],
-            NoSSR: [path.resolve(__dirname, 'plugins/NoSSR'), 'default'],
             PropTypes: 'prop-types'
           })
         );

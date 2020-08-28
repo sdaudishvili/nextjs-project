@@ -12,7 +12,6 @@ module.exports = {
   globals: {
     React: true,
     axios: true,
-    NoSSR: true,
     PropTypes: true
   },
   rules: {

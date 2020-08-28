@@ -1,6 +1,6 @@
 import ReactNoSSR from 'react-no-ssr';
 import PropTypes from 'prop-types';
-import Loader from '../components/molecules/Loader';
+import Loader from '../molecules/Loader';
 
 function NoSSR(props) {
   const { children } = props;

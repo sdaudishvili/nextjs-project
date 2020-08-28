@@ -1,7 +1,7 @@
-/* eslint-disable react/jsx-no-undef */
 import React from 'react';
 import List from '@material-ui/core/List';
 import NavItem from './NavItem';
+import NoSSR from '../../../atoms/NoSSR';
 
 const routes = [
   { id: 0, path: '/admin', title: 'Home' },
@@ -10,8 +10,6 @@ const routes = [
 ];
 
 function Navigation() {
-  console.log('axios', axios);
-  console.log('NoSSR', NoSSR);
   return (
     <NoSSR>
       <List component="nav" aria-label="main">

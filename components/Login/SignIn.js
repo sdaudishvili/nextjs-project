@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-undef */
 import Container from '@material-ui/core/Container';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
@@ -6,6 +5,7 @@ import { useEffect } from 'react';
 import SignInAvatar from './SignInAvatar';
 import SignInForm from './SignInForm';
 import Copyright from './Copyright';
+import NoSSR from '../atoms/NoSSR';
 
 import { authenticateUser } from '../../redux/actions/userActions';
 
