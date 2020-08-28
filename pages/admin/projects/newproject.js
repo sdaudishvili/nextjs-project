@@ -1,13 +1,11 @@
-import { useState } from 'react';
-import { withRouter } from 'next/router';
-import Page from '../../../components/organisms/Page/Page';
-import Input from '../../../components/molecules/Input';
-import TwoButtons from '../../../components/molecules/TwoButtons';
-import Cropper from '../../../components/molecules/Cropper';
-import TinyMCE from '../../../components/molecules/TinyMCE';
+import { useRouter } from 'next/router';
+import { Input, TwoButtons, Cropper, TinyMCE } from '@/components/molecules';
 
-function NewProject({ router }) {
-  const [data, setData] = useState({});
+import Page from '../../../components/organisms/Page/Page';
+
+function NewProject() {
+  const router = useRouter();
+  const [data, setData] = React.useState({});
 
   function handleInput(event) {
     setData({ ...data, [event.target.name]: event.target.value });
@@ -42,7 +40,7 @@ function NewProject({ router }) {
     />,
     <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
   ];
-  return <Page pageTitle="New Project" body={elems} />;
+  return <Page pageTitle="New Project" bodyElems={elems} />;
 }
 
-export default withRouter(NewProject);
+export default NewProject;

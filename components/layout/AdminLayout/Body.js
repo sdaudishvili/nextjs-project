@@ -6,10 +6,10 @@ const AdminLayoutBody = (props) => {
 };
 
 AdminLayoutBody.propTypes = {
-  children: PropTypes.string
+  children: PropTypes.any
 };
 
 AdminLayoutBody.defaultProps = {
-  children: ''
+  children: null
 };
 export default AdminLayoutBody;

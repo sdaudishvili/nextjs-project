@@ -1,16 +1,15 @@
 import Container from '@material-ui/core/Container';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import { authenticateUser } from '@/redux/actions/userActions';
+import { NoSSR } from '@/components/atoms';
 import { Copyright, SignInForm, SignInAvatar } from './components';
-import NoSSR from '../../atoms/NoSSR';
 
 const Login = () => {
   const router = useRouter();
   const user = useSelector((state) => state.userState);
   const dispatch = useDispatch();
-  useEffect(() => {
+  React.useEffect(() => {
     if (user.user !== '') router.push('/admin');
   }, [user]);
 

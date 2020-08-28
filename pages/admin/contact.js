@@ -1,18 +1,17 @@
-import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { withRouter } from 'next/router';
-import Input from '../../components/molecules/Input';
-import TwoButtons from '../../components/molecules/TwoButtons';
-import Page from '../../components/organisms/Page/Page';
+import { useRouter } from 'next/router';
+import { Input, TwoButtons } from '@/components/molecules';
+import { Page } from '@/components/organisms';
 
-import { fetchContacts, updateContacts } from '../../redux/actions/contactsActions';
+import { fetchContacts, updateContacts } from '@/redux/actions/contactsActions';
 
-function Contacts({ router }) {
+function Contacts() {
+  const router = useRouter();
   const contacts = useSelector((state) => state.contacts);
-  const [data, setData] = useState({ ...contacts.data });
+  const [data, setData] = React.useState({ ...contacts.data });
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  React.useEffect(() => {
     setData({ ...data, ...contacts.data });
   }, [contacts]);
 
@@ -36,10 +35,10 @@ function Contacts({ router }) {
     <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
   ];
 
-  return <Page pageTitle="Contacts" body={elems} />;
+  return <Page pageTitle="Contacts" bodyElems={elems} />;
 }
 
 Contacts.getInitialProps = async ({ ctx }) => {
   await ctx.store.dispatch(fetchContacts());
 };
-export default withRouter(Contacts);
+export default Contacts;

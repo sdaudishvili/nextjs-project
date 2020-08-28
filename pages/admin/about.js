@@ -1,19 +1,16 @@
-import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { withRouter } from 'next/router';
-import Input from '../../components/molecules/Input';
-import TwoButtons from '../../components/molecules/TwoButtons';
-import TinyMCE from '../../components/molecules/TinyMCE';
-import Page from '../../components/organisms/Page/Page';
+import { useRouter } from 'next/router';
+import { Input, TwoButtons, TinyMCE } from '@/components/molecules';
+import { Page } from '@/components/organisms';
+import { fetchAbout, updateAbout } from '@/redux/actions/aboutActions';
 
-import { fetchAbout, updateAbout } from '../../redux/actions/aboutActions';
-
-function About({ router }) {
+function About() {
+  const router = useRouter();
   const about = useSelector((state) => state.about);
   const dispatch = useDispatch();
-  const [data, setData] = useState({ ...about.data });
+  const [data, setData] = React.useState({ ...about.data });
 
-  useEffect(() => {
+  React.useEffect(() => {
     setData({ ...data, ...about.data });
   }, [about]);
 
@@ -36,11 +33,11 @@ function About({ router }) {
     <TwoButtons onSubmit={onSubmit} onCancel={onCancel} />
   ];
 
-  return <Page pageTitle="About" body={elems} />;
+  return <Page pageTitle="About" bodyElems={elems} />;
 }
 
 About.getInitialProps = async ({ ctx }) => {
   await ctx.store.dispatch(fetchAbout());
 };
 
-export default withRouter(About);
+export default About;

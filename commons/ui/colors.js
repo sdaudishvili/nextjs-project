@@ -1,5 +1,6 @@
 const colors = {
   primary: '#5A2360',
+  'sidebar-bg': '#282733',
   'primary-text': '#333333',
   'primary-bg': '#081123',
   'primary-hover': '#D6BAA0',

@@ -1,7 +1,7 @@
 import React from 'react';
 import List from '@material-ui/core/List';
-import NavItem from './NavItem';
-import NoSSR from '../../../atoms/NoSSR';
+import NoSSR from '@/components/atoms/NoSSR';
+import { NavItem } from './components';
 
 const routes = [
   { id: 0, path: '/admin', title: 'Home' },

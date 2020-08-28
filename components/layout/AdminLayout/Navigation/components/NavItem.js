@@ -1,4 +1,3 @@
-import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from 'next/link';
