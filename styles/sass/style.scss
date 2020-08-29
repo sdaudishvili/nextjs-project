@@ -1,18 +1,6 @@
 /*! purgecss start ignore */
 
-//import variables,functions,mixins of scss  - not compile to css
-@import 'app.scss';
-
-/* Import Generic - Low Specificity, far reaching styles eg. resets */
-@import 'generic/reset', 'generic/sanitize';
-
 /* Base */
-@import 'base/global', 'base/typography';
-
-/* Objects - Objects and Design Patterns */
-@import 'objects/avatar', 'objects/line', 'objects/filtered-image';
-
-/* Animations */
-@import 'animations/bouncing';
+@import 'base/config', 'base/global', 'base/typography';
 
 /*! purgecss end ignore */
