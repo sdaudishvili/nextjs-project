@@ -19,6 +19,7 @@ const theme = createMuiTheme({
     htmlFontSize: 10
   }
 });
+
 const App = ({ Component, pageProps, store, router }) => {
   // if (errorCode) {
   //   return <Error statusCode={404} />;
