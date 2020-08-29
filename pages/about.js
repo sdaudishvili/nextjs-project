@@ -1,3 +1,11 @@
-export default function About() {
-  return <main />;
-}
+import { PageHeader } from '@/components/atoms';
+
+const About = () => {
+  return (
+    <section>
+      <PageHeader title="About Us" />
+    </section>
+  );
+};
+
+export default About;
