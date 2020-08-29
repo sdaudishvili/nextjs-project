@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { SocialIcons } from '@/components/molecules';
+import { SocialIcons, Typography } from '@/components/molecules';
 import { Share } from '@/components/atoms';
 
 const PinnedBlogs = (props) => {
@@ -11,13 +11,17 @@ const PinnedBlogs = (props) => {
       <div className="[ w-50-percent ]">
         <img className="[ w-full ]" src={blog.image} alt={blog.title} />
       </div>
-      <div className="[ w-50-percent bg-pinned-blogs text-white px-10-0 pt-15-0 pb-13-2 flex flex-col justify-between ]">
+      <div className="[ w-50-percent bg-pinned-blogs text-white px-10-0 pt-11-2 pb-10-0 flex flex-col justify-between ]">
         <div>
-          <h4 className="[ font-m-sbd text-1-2 text-secondary-text tracking-widest ]">BLOG</h4>
-          <h3 className="[ font-p-bd text-4-8 mt-1-0 leading-1-2 w-80-percent ]">{blog.title}</h3>
-          <p className="description [ font-m-md text-1-4 mt-3-7 text-secondary-text ]">{blog.description}</p>
+          <Typography variant="subtitle2" className="[ text-secondary-text ]">
+            BLOG
+          </Typography>
+          <Typography variant="h2" className="[ mt-1-0 w-80-percent ]">
+            {blog.title}
+          </Typography>
+          <Typography className="two-columns [ mt-3-7 text-secondary-text ]">{blog.description}</Typography>
         </div>
-        <div className="[ flex items-center justify-between text-1-6 font-p-md-ittext-1-6 font-p-md-it ]">
+        <div className="[ flex items-center justify-between text-1-6 font-p-md-it ]">
           <div className="[ text-primary-hover ]">29/08/2020</div>
           <div className="[ flex items-center ]">
             <Share />
@@ -25,8 +29,8 @@ const PinnedBlogs = (props) => {
           </div>
         </div>
       </div>
-      <style jsx>{`
-        .description {
+      <style jsx global>{`
+        .two-columns {
           column-count: 2;
           column-gap: 7rem;
         }

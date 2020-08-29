@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { ContactNote } from '@/components/molecules';
+import { ContactNote, Typography } from '@/components/molecules';
 import BottomNavbar from './BottomNavbar';
 
 const Subscribe = (props) => {
@@ -8,14 +8,19 @@ const Subscribe = (props) => {
   return (
     <div className={clsx(className, '[ grid grid-cols-12 gap-4-2 ]')}>
       <div className="[ col-span-3 ]">
-        <div className="[ font-m-rg text-1-2 uppercase ]">Independent Group of Initiators</div>
-        <div className="[ h-7-0 flex items-center mt-1-0 ]">
+        <div className="[ h-7-0 flex items-center ]">
           <img className="[ h-full ]" src="/images/logo.png" alt="" />
-          <div className="[ font-p-md text-5-0 ml-1-0 ]">IGI</div>
+          <Typography variant="h2" className="[ ml-1-0 ]">
+            IGI
+          </Typography>
         </div>
-
-        <div className="[ text-secondary-text font-m-md text-1-2 mt-1-0 ]">
-          Copyright ©2020 All rights reserved!
+        <div className="[ text-secondary-text ]">
+          <Typography variant="body2" className="[ mt-1-0 ]">
+            Copyright ©2020 All rights reserved!
+          </Typography>
+          <Typography variant="body2" className="[ mt-1-0 ]">
+            Independent Group of Initiators!
+          </Typography>
         </div>
       </div>
       <div className="[ col-span-5 ]">
