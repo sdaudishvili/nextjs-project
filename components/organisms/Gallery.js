@@ -8,7 +8,7 @@ const swiperOptions = {
   loop: true
 };
 
-const Carousel = (props) => {
+const Gallery = (props) => {
   const { items, className } = props;
   return (
     <div className={clsx(className, 'overflow--visible [ py-13-2 bg-slider px-27-5 ]')}>
@@ -44,13 +44,13 @@ const Carousel = (props) => {
   );
 };
 
-Carousel.propTypes = {
+Gallery.propTypes = {
   items: PropTypes.instanceOf(Array).isRequired,
   className: PropTypes.string
 };
 
-Carousel.defaultProps = {
+Gallery.defaultProps = {
   className: ''
 };
 
-export default Carousel;
+export default Gallery;
