@@ -90,7 +90,8 @@ const spacing = {
 
   '100-vh': '100vh',
   'base-space': 'var(--base-space)',
-  'base-x': '23.5rem'
+  'base-x': '23.5rem',
+  mc: 'max-content'
 };
 
 module.exports = spacing;

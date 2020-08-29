@@ -8,3 +8,4 @@ export { default as TextBox } from './TextBox';
 export { default as TinyMCE } from './TinyMCE';
 export { default as TwoButtons } from './TwoButtons';
 export { default as ContactNote } from './ContactNote';
+export { default as SocialIcons } from './SocialIcons';

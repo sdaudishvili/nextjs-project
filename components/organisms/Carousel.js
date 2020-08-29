@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
+import clsx from 'clsx';
 
 const swiperOptions = {
   spaceBetween: 24,
-  slidesPerView: 4,
+  slidesPerView: 3,
   loop: true
 };
 
 const Carousel = (props) => {
-  const { items } = props;
+  const { items, className } = props;
   return (
-    <div className="[ py-13-2 bg-slider ]">
-      <Swiper {...swiperOptions}>
+    <div className={clsx(className, 'overflow--visible [ py-13-2 bg-slider px-27-5 ]')}>
+      <Swiper style={{ overflow: 'visible' }} {...swiperOptions}>
         {items.map((x) => (
           <SwiperSlide key={x}>
             <div className="hover-item [ relative cursor-pointer ]">
@@ -45,7 +46,12 @@ const Carousel = (props) => {
 };
 
 Carousel.propTypes = {
-  items: PropTypes.instanceOf(Array).isRequired
+  items: PropTypes.instanceOf(Array).isRequired,
+  className: PropTypes.string
+};
+
+Carousel.defaultProps = {
+  className: ''
 };
 
 export default Carousel;

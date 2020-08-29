@@ -5,3 +5,6 @@ export { default as NoSSR } from './NoSSR';
 export { default as Input } from './Input';
 export { default as PageHeader } from './PageHeader';
 export { default as ReadMore } from './ReadMore';
+export { default as IconButton } from './IconButton';
+export { default as IconCircle } from './IconCircle';
+export { default as SVG } from './SVG';

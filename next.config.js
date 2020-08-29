@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const withSass = require('@zeit/next-sass');
 const withCSS = require('@zeit/next-css');
 const path = require('path');
@@ -16,6 +17,15 @@ module.exports = withCSS(
           axios: [path.resolve(__dirname, 'plugins/axios'), 'default']
         })
       );
+      config.module.rules.push({
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 100000
+          }
+        }
+      });
       if (dev) {
         config.module.rules.push({
           test: /\.js$/,
@@ -23,24 +33,6 @@ module.exports = withCSS(
           loader: 'eslint-loader'
         });
       }
-      config.module.rules.push({
-        test: /\.svg$/,
-        use: [
-          {
-            loader: 'babel-loader'
-          },
-          {
-            loader: 'react-svg-loader',
-            options: {
-              jsx: true,
-              svgo: {
-                plugins: [{ removeTitle: false }],
-                floatPrecision: 2
-              }
-            }
-          }
-        ]
-      });
       return config;
     }
   })
