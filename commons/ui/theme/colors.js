@@ -4,6 +4,7 @@ const colors = {
   'primary-text': '#333333',
   'primary-bg': '#081123',
   'primary-hover': '#D6BAA0',
+  slider: '#282428',
   black: '#000000',
   secondary: '#320D36',
   'secondary-text': '#8d8d8d',

@@ -3,3 +3,4 @@ export { default as Page } from './Page';
 export { default as Notifications } from './Notifications';
 export { default as MainContainer } from './MainContainer';
 export { default as Article } from './Article';
+export { default as Carousel } from './Carousel';
