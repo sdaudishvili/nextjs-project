@@ -3,4 +3,9 @@
 /* Base */
 @import 'base/config', 'base/global', 'base/typography', 'base/root';
 
+/* Components */
+@import 'swiper/swiper.scss';
+@import 'react-notifications-component/dist/theme.css';
+@import 'cropperjs/dist/cropper.css';
+
 /*! purgecss end ignore */

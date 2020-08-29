@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import CropperJS from 'react-cropper';
-import 'cropperjs/dist/cropper.css';
 import Button from '@material-ui/core/Button';
 import { uploadImage } from '@/redux/actions/imageActions';
 import PropTypes from 'prop-types';

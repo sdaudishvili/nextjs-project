@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper.scss';
 import clsx from 'clsx';
 
 const swiperOptions = {

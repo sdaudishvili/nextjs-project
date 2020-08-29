@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import ReactNotification, { store } from 'react-notifications-component';
-import 'react-notifications-component/dist/theme.css';
 
 function Notifications() {
   const notifs = useSelector((state) => state.notifs);
