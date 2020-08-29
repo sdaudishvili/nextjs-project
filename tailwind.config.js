@@ -14,7 +14,6 @@ module.exports = {
     opacity: require('./commons/ui/theme/opacity'),
     maxWidth: require('./commons/ui/theme/maxWidth')
   },
-  variants: ['responsive', 'first', 'last', 'odd', 'even', 'hover'],
   corePlugins: require('./commons/ui/plugins/corePlugins'),
   plugins: require('./commons/ui/plugins/plugins')
 };

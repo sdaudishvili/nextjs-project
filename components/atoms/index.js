@@ -8,3 +8,4 @@ export { default as ReadMore } from './ReadMore';
 export { default as IconButton } from './IconButton';
 export { default as IconCircle } from './IconCircle';
 export { default as SVG } from './SVG';
+export { default as Share } from './Share';
