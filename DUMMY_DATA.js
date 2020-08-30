@@ -75,5 +75,21 @@ export const projects = [
     description:
       'Praesent fermentum ligula in dui imper diet, vel tempus nulla ultricies. Phasellus at commodo ligula.',
     dates: '10/03/2020 - 21/03/2020'
+  },
+  {
+    slug: 'dv-suite',
+    image: 'https://colorlib.com/preview/theme/samira/images/room_3.jpg',
+    title: 'Deluxe Suddite',
+    description:
+      'Praesent fermentum ligula in dui imper diet, vel tempus nulla ultricies. Phasellus at commodo ligula.',
+    dates: '10/03/2020 - 21/03/2020'
+  },
+  {
+    slug: 'd3-suite',
+    image: 'https://colorlib.com/preview/theme/samira/images/room_1.jpg',
+    title: 'Deluxete',
+    description:
+      'Praesent fermentum ligula in dui imper diet, vel tempus nulla ultricies. Phasellus at commodo ligula.',
+    dates: '10/03/2020 - 21/03/2020'
   }
 ];

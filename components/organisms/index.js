@@ -6,4 +6,3 @@ export { default as Article } from './Article';
 export { default as Gallery } from './Gallery';
 export { default as PinnedBlogs } from './PinnedBlogs';
 export { default as PinnedProjects } from './PinnedProjects';
-export { default as BlogsList } from './BlogsList';

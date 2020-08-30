@@ -16,7 +16,7 @@ const PinnedProjects = (props) => {
       </div>
       <div className="[ grid grid-cols-3 gap-3-0 mt-8-0 ]">
         {projects.map((project) => (
-          <SingleProject key={project.slug} project={project} />
+          <SingleProject key={project.slug} item={project} />
         ))}
       </div>
     </div>

@@ -8,7 +8,9 @@ const SingleProject = (props) => {
       <img className="[ w-full ]" src={item.image} alt={item.title} />
       <div className="[ px-3-0 pt-3-8 pb-3-2 ]">
         <div className="[ text-center ]">
-          <Typography variant="h3">{item.title}</Typography>
+          <Typography lineClamp={2} variant="h3">
+            {item.title}
+          </Typography>
           <Typography lineClamp={3} className="[ text-secondary-text mt-2-7 ]">
             {item.description}
           </Typography>
