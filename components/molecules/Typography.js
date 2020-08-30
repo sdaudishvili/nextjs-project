@@ -28,7 +28,7 @@ const leadingsSet = {
 };
 
 const Typography = (props) => {
-  const { span, variant, leading, className, upper, ...rest } = props;
+  const { span, variant, leading, className, upper, lineClamp, children, ...rest } = props;
 
   // eslint-disable-next-line no-nested-ternary
   const Component = span
@@ -40,11 +40,27 @@ const Typography = (props) => {
 
   return (
     <Component
-      className={clsx({ [variantsSet[variant]]: variant }, calculatedLeading, className, {
-        uppercase: upper
-      })}
+      className={clsx(
+        { [variantsSet[variant]]: variant, uppercase: upper, 'l-c': lineClamp },
+        calculatedLeading,
+        className
+      )}
       {...rest}
-    />
+    >
+      {children}
+      <style jsx>{`
+        @mixin line-clamp($count) {
+          display: -webkit-box;
+          -webkit-line-clamp: $count;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        .l-c {
+          @include line-clamp(${lineClamp});
+        }
+      `}</style>
+    </Component>
   );
 };
 
@@ -53,7 +69,9 @@ Typography.propTypes = {
   span: PropTypes.bool,
   variant: PropTypes.oneOf(Object.keys(variantsSet)),
   leading: PropTypes.string,
-  upper: PropTypes.bool
+  upper: PropTypes.bool,
+  lineClamp: PropTypes.number,
+  children: PropTypes.node
 };
 
 Typography.defaultProps = {
@@ -61,7 +79,9 @@ Typography.defaultProps = {
   span: false,
   variant: 'body1',
   leading: null,
-  upper: false
+  upper: false,
+  lineClamp: null,
+  children: null
 };
 
 export default Typography;

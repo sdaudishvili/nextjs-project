@@ -4,7 +4,7 @@ import { blogs } from '@/DUMMY_DATA';
 
 const Blog = () => {
   return (
-    <section className="[ mb-12-5 ]">
+    <section>
       <PageHeader title="Blogs" />
       {blogs && <PinnedBlogs blogs={blogs.slice(0, 3)} />}
       <Blogs blogs={blogs} />
