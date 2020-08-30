@@ -6,7 +6,7 @@ import { Typography } from '@/components/molecules';
 const Subscribe = (props) => {
   const { className } = props;
   return (
-    <div className={clsx(className, '[ flex ]')}>
+    <div className={clsx(className, '[ [ pt-7-0 pb-7-0 ] flex border-t-2 border-border border-solid ]')}>
       <div className="[ flex-1 pr-2-0 ]">
         <Typography variant="subtitle2" className="[ text-secondary-text ]">
           SUBSCRIBE

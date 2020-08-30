@@ -9,7 +9,7 @@ const contactItems = {
 const DefaultLayoutFooter = () => {
   return (
     <footer className="container">
-      <Subscribe className="[ pt-9-0 pb-7-0 ]" />
+      <Subscribe />
       <div className="[ border-b-2 border-border border-solid ]" />
       <BottomFooter contactItems={contactItems} className="[ pt-8-7 pb-6-0 ]" />
     </footer>

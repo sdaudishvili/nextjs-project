@@ -41,7 +41,8 @@ const colors = {
   'green-300': '#c9da96',
   'green-400': '#dbe6b9',
   khaki: '#f1ef8f',
-  'atomic-tangerine': '#ffa770'
+  'atomic-tangerine': '#ffa770',
+  overlay: 'rgba(9,3,32,0.87)'
 };
 
 module.exports = colors;

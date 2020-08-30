@@ -13,7 +13,31 @@ export const sliderItems = [
   'https://colorlib.com/preview/theme/samira/images/gallery_5.jpg'
 ];
 
-export const pinnedBlogs = [
+export const blogs = [
+  {
+    image: '/images/pinnedBlog.jpg',
+    title: 'Rooms with private swimming pool',
+    description:
+      'Praesent fermentum ligula in dui imperdiet, vel tempus nulla ultricies. Phasellus at commodo ligula. Nullam molestie volutpat sapien, a dignissim tortor laoreet quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra. Phasellus at commodo ligula. Nullam molestie volutpat sapien, a dignissim tortor per inceptos himenaeos laoreet quis. Class aptent taciti soci osqu ad litora torquent per conubia nostra, per inceptos himenaeos.'
+  },
+  {
+    image: '/images/pinnedBlog.jpg',
+    title: 'Rooms with private swimming pool',
+    description:
+      'Praesent fermentum ligula in dui imperdiet, vel tempus nulla ultricies. Phasellus at commodo ligula. Nullam molestie volutpat sapien, a dignissim tortor laoreet quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra. Phasellus at commodo ligula. Nullam molestie volutpat sapien, a dignissim tortor per inceptos himenaeos laoreet quis. Class aptent taciti soci osqu ad litora torquent per conubia nostra, per inceptos himenaeos.'
+  },
+  {
+    image: '/images/pinnedBlog.jpg',
+    title: 'Rooms with private swimming pool',
+    description:
+      'Praesent fermentum ligula in dui imperdiet, vel tempus nulla ultricies. Phasellus at commodo ligula. Nullam molestie volutpat sapien, a dignissim tortor laoreet quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra. Phasellus at commodo ligula. Nullam molestie volutpat sapien, a dignissim tortor per inceptos himenaeos laoreet quis. Class aptent taciti soci osqu ad litora torquent per conubia nostra, per inceptos himenaeos.'
+  },
+  {
+    image: '/images/pinnedBlog.jpg',
+    title: 'Rooms with private swimming pool',
+    description:
+      'Praesent fermentum ligula in dui imperdiet, vel tempus nulla ultricies. Phasellus at commodo ligula. Nullam molestie volutpat sapien, a dignissim tortor laoreet quis. Class aptent taciti sociosqu ad litora torquent per conubia nostra. Phasellus at commodo ligula. Nullam molestie volutpat sapien, a dignissim tortor per inceptos himenaeos laoreet quis. Class aptent taciti soci osqu ad litora torquent per conubia nostra, per inceptos himenaeos.'
+  },
   {
     image: '/images/pinnedBlog.jpg',
     title: 'Rooms with private swimming pool',
