@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const Blogs = (props) => {
   const { className, blogs } = props;
-  return <div className={className}>{JSON.string(blogs)}</div>;
+  return <div className={className}>{JSON.stringify(blogs)}</div>;
 };
 
 Blogs.propTypes = {
