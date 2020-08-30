@@ -26,7 +26,7 @@ const Subscribe = (props) => {
       <div className="[ col-span-5 ]">
         <BottomNavbar />
       </div>
-      <ContactNote className="[ col-span-4 ]" contactItems={contactItems} />
+      <ContactNote isFooter className="[ col-span-4 text-1-4 ]" contactItems={contactItems} />
     </div>
   );
 };

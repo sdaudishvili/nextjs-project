@@ -4,6 +4,7 @@ const colors = {
   'primary-text': '#333333',
   'primary-bg': '#081123',
   'primary-hover': '#D6BAA0',
+  'primary-input-bg': '#F5F2FA',
   slider: '#282428',
   'pinned-blogs': '#141214',
   black: '#000000',

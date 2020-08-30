@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Input, Button } from '@/components/atoms';
+import { TextField, Button } from '@/components/atoms';
 import clsx from 'clsx';
 import { Typography } from '@/components/molecules';
 
@@ -19,7 +19,7 @@ const Subscribe = (props) => {
       </div>
       <div className="[ w-60-percent pl-2-0 mt-9-0 ]">
         <div className="[ flex text-1-4 ]">
-          <Input placeholder="Your e-mail" variant="outlined" className="[ flex-1 border-r-0 ]" />
+          <TextField placeholder="Your e-mail" variant="outlined" className="[ flex-1 border-r-0 ]" />
           <Button>Subscribe</Button>
         </div>
       </div>

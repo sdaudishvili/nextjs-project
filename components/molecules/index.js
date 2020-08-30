@@ -13,3 +13,4 @@ export { default as SingleProject } from './SingleProject';
 export { default as Typography } from './Typography';
 export { default as HtmlText } from './HtmlText';
 export { default as SingleBlog } from './SingleBlog';
+export { default as ContactForm } from './ContactForm';

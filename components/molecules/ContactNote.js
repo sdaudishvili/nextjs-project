@@ -1,19 +1,19 @@
 import PropTypes from 'prop-types';
 
 const ContactNote = (props) => {
-  const { contactItems, ...rest } = props;
+  const { contactItems, isFooter, ...rest } = props;
   return (
     <ul {...rest}>
-      <li className="[ mb-1-5 font-m-md text-1-4 ]">
-        <span className="[ text-secondary-text ]">Address: </span>
+      <li className="[ mb-1-5 font-m-md ]">
+        {isFooter && <span className="[ text-secondary-text ]">Address: </span>}
         <span>{contactItems.address}</span>
       </li>
-      <li className="[ mb-1-5 font-m-md text-1-4 ]">
-        <span className="[ text-secondary-text ]">Phone: </span>
+      <li className="[ mb-1-5 font-m-md ]">
+        {isFooter && <span className="[ text-secondary-text ]">Phone: </span>}
         <span>{contactItems.phone}</span>
       </li>
-      <li className="[ mb-1-5 font-m-md text-1-4 ]">
-        <span className="[ text-secondary-text ]">Email: </span>
+      <li className="[ mb-1-5 font-m-md ]">
+        {isFooter && <span className="[ text-secondary-text ]">Email: </span>}
         <span>{contactItems.email}</span>
       </li>
     </ul>
@@ -21,11 +21,13 @@ const ContactNote = (props) => {
 };
 
 ContactNote.propTypes = {
-  contactItems: PropTypes.object
+  contactItems: PropTypes.object,
+  isFooter: PropTypes.bool
 };
 
 ContactNote.defaultProps = {
-  contactItems: () => ({})
+  contactItems: () => ({}),
+  isFooter: false
 };
 
 export default ContactNote;
